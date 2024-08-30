@@ -1,0 +1,82 @@
+// Font
+$globalFont: "Nunito", sans-serif;
+
+// color variables
+$gold-color: #cb9540;
+$dark-red-color: #c42b2b;
+$white-color: #fff;
+$orange-color: #ff4500;
+$grey-color: #f7f7f7;
+$dark-grey-color: #f9f9f9;
+$darker-grey-color: #c6c6c6;
+$black-color: #333;
+
+// BoxShadows
+$myLightBoxShadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+$myMediumBoxShadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+  rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+$myHeavyBoxShadow: rgba(50, 50, 93, 0.25) 0px 2px 4px -1px,
+  rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+$myMenuBoxShadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px,
+  rgba(0, 0, 0, 0.5) 0px 0px 1px 0px;
+$myInsetBoxShadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+$myHoverBoxShadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+$myBreadCrumbInsetShadow: inset 0 0 4px rgba(0, 0, 0, 0.15);
+$myBreadCrumbShadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+
+// general variables
+$my-border-radius: 4px;
+
+// header only variables
+$header-top-padding: 8px;
+$header-bottom-padding: 15px;
+
+$header-icon-color: #444;
+$header-icon-bottom-padding: 16px;
+$header-icon-size: 25px;
+$header-icon-border: 1px solid #d7d7d7;
+
+// infoMenu
+$infoMenu-font-weight: 400;
+
+$searchbar-button-radius: 16px;
+
+// topMenu
+$topMenu-backgroud: #fbfbfb;
+$topMenu-border-color: #e0e0e0;
+$topMenu-font-weight: 400;
+
+// Banner
+$bannerMarginTop: 20px;
+$bannerMarginTopTablet: 10px;
+
+// Carousel
+$carousel-heading-font-weight: 400;
+$carousel-product-font-weight: 300;
+
+$carousel-star-size: 1rem;
+
+$carousel-review-font-size: 13px;
+$carousel-review-font-weight: 200;
+
+// [slug]products
+$category-description-weight: 300;
+
+$category-products-headings: 0.85rem;
+$category-products-headings-weight: 400;
+
+$category-top-seller-heading: 1rem;
+$category-top-seller-heading-weight: 600;
+
+$category-top-seller-description: 0.75rem;
+$category-top-seller-description-weight: 200;
+
+$category-top-seller-price: 1.1rem;
+$category-top-seller-price-weight: 700;
+
+$help-element: 13px;
+$help-element-weight: 200;
+$help-element-font: "Courier New", Courier, monospace;
+
+$breadCrumbs-size: 12px;
+$breadCrumbs-weight: 300;

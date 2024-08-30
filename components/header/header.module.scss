@@ -1,0 +1,29 @@
+@import "./styles/variables";
+
+.headerStyle {
+  padding-bottom: $header-bottom-padding;
+
+  .logo {
+    min-width: 200px;
+    max-width: 250px;
+  }
+  .infoMenu {
+    display: none;
+
+    @media (min-width: 431px) {
+      display: flex;
+    }
+
+    @media (min-width: 992px) {
+      display: flex;
+      //margin-left: 10px;
+    }
+  }
+
+  .mobilePosition {
+    position: relative;
+  }
+  @media (min-width: 1200px) {
+    box-shadow: $myLightBoxShadow;
+  }
+}

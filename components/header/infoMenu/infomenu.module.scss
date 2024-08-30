@@ -1,0 +1,21 @@
+@import "./styles/variables";
+
+.styledInfoMenu {
+  p {
+    a {
+      text-decoration: none;
+      padding-right: 5px;
+      font-size: 0.81rem;
+      font-weight: $infoMenu-font-weight;
+      color: $black-color;
+      &:hover {
+        color: $gold-color;
+      }
+
+      &:not(:last-child)::after {
+        content: "|";
+        padding: 0 4px;
+      }
+    }
+  }
+}

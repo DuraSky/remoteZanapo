@@ -1,0 +1,31 @@
+@import "./styles/variables";
+
+.element {
+  //margin-left: -40px;
+  padding-left: 0 !important;
+  display: flex;
+  flex-grow: 1;
+  ul {
+    list-style-type: none;
+    padding: 0;
+
+    display: flex;
+    gap: 10px;
+
+    li {
+      background-color: white;
+      padding: 5px;
+      font-size: $help-element;
+      font-weight: $help-element-weight;
+      font-family: $help-element-font;
+      margin-top: 20px;
+      &::before {
+        content: "?";
+        color: $orange-color;
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+@import "./styles/variables";
+
+.searchCol {
+  font-family: $globalFont;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  border: $header-icon-border;
+  border-top-left-radius: $my-border-radius;
+  border-top-right-radius: $my-border-radius;
+  border-bottom-left-radius: $my-border-radius;
+  border-bottom-right-radius: $searchbar-button-radius;
+
+  .searchIcon {
+    display: flex;
+    margin: 0 10px;
+  }
+
+  .searchInput {
+    flex: 1 1 auto;
+    border: none;
+    box-sizing: border-box;
+    font-size: 16px;
+    padding: 7px;
+    height: 100%;
+    min-width: 0;
+  }
+
+  .searchButton {
+    background-color: $orange-color;
+    color: $white-color;
+    cursor: pointer;
+    border: none;
+    border-top-left-radius: $my-border-radius;
+    border-top-right-radius: $my-border-radius;
+    border-bottom-right-radius: $searchbar-button-radius;
+    opacity: 1;
+    box-sizing: border-box;
+
+    height: calc(100% - 20px);
+    padding: 10px;
+    flex: 0 0 auto;
+    min-width: 60px;
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    padding: 2px;
+
+    .searchButton {
+      padding: 5px;
+      min-width: 50px;
+    }
+
+    .searchIcon {
+      margin: 0 5px;
+    }
+
+    .searchInput {
+      font-size: 14px;
+      padding: 5px;
+    }
+  }
+}

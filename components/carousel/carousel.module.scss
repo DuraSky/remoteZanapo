@@ -1,0 +1,171 @@
+@import "./styles/variables";
+
+.carouselContainer {
+  margin: 0 auto;
+}
+
+.carouselWrapper {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.carouselHeader {
+  //text-align: center;
+  //margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: 200;
+  margin: 0;
+  margin-top: 20px;
+  font-weight: $carousel-heading-font-weight;
+  //font-weight: bold;
+  color: #333;
+  //box-shadow: $myLightBoxShadow;
+  //width: 100%;
+  //text-align: center;
+}
+
+.carouselInnerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+.carouselViewport {
+  overflow: hidden;
+  flex: 1;
+  width: 100%;
+  max-width: 100%;
+}
+
+.carouselInner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  margin: 10px 0;
+}
+
+.carouselItem {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //padding: 10px;
+  box-sizing: border-box;
+}
+
+.product {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  //background: #fff;
+  //border: 1px solid $dark-grey-color;
+  border-radius: $my-border-radius;
+  padding: 20px;
+  //box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  //text-align: center;
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 200px;
+  height: 330px;
+  margin: 0 auto;
+  //box-shadow: $myMenuBoxShadow;
+
+  @media (min-width: 1200px) {
+    width: 80%;
+  }
+
+  .labelsContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5px;
+  }
+
+  @media (min-width: 1400px) {
+    max-width: 260px;
+  }
+
+  &:hover {
+    //border: 1px solid $orange-color;
+    transform: translateY(-5px);
+    box-shadow: $myMenuBoxShadow;
+    //box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  img {
+    max-width: 200px;
+    height: auto;
+    //border-radius: $my-border-radius;
+    //margin-bottom: 15px;
+    @media (min-width: 1400px) {
+      max-width: 250px;
+      max-height: 200px;
+    }
+  }
+
+  h3 {
+    //font-size: 1.2rem;
+    //margin-bottom: 10px;
+    color: #333;
+    font-weight: $carousel-product-font-weight;
+    //box-shadow: $myLightBoxShadow;
+  }
+
+  .price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ff6600;
+    text-align: center;
+  }
+}
+
+.carouselButton {
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  padding: 6px 18px;
+  border: none;
+  color: black;
+  //background-color: #333;
+  background: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+
+  &:hover {
+    //background-color: #ff6600;
+    color: $orange-color;
+    //transform: translateY(-50%) scale(1.1);
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.prevButton {
+  left: -10px;
+
+  @media (min-width: 1200px) {
+    left: -20px;
+  }
+}
+
+.nextButton {
+  right: -10px;
+
+  @media (min-width: 1200px) {
+    right: -20px;
+  }
+}

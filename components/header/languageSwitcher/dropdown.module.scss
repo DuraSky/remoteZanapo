@@ -1,0 +1,64 @@
+@import "./styles/variables";
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0px;
+  padding: 5px;
+  background-color: $grey-color;
+  z-index: 1000;
+  width: max-content;
+  max-width: 150px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 5px;
+    padding: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+
+    &:hover {
+      background-color: #eaeaea;
+    }
+
+    img {
+      width: 28px;
+      height: 20px;
+    }
+
+    p {
+      margin: 0;
+      font-size: 14px;
+    }
+  }
+}
+
+.selected-flag {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px;
+  background-color: $grey-color;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  margin-bottom: 1px;
+  z-index: 1000;
+
+  img {
+    width: 27px;
+    height: 18px;
+  }
+
+  .arrow {
+    margin-left: 8px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid $black-color;
+  }
+}

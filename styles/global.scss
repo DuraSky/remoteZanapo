@@ -1,0 +1,38 @@
+@import "./styles/variables";
+@import "./main.scss";
+body,
+p {
+  font-family: $globalFont;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-width: 260px;
+}
+
+a,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+section,
+header {
+  max-width: 1500px;
+}
+
+// .container-fluid,
+// .row {
+//   max-width: 1500px;
+//   margin: 0 auto;
+//   padding: 0;
+// }
+
+// * {
+//   outline: 1px solid #f00 !important;
+// }

@@ -1,0 +1,103 @@
+@import "./styles/variables";
+
+.categoryItem {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    border-left 0.3s ease;
+
+  .categoryContent {
+    a {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      // text-decoration: none;
+      // color: $black-color;
+      img {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+      }
+    }
+  }
+  &.hovered {
+    background-color: $topMenu-backgroud;
+    border-left: 3px solid $gold-color;
+    border-bottom: 1px solid $topMenu-border-color;
+    z-index: 9999 !important;
+  }
+
+  &:not(:first-child).hovered {
+    border-top: 1px solid $topMenu-border-color;
+  }
+
+  &:last-child.hovered {
+    border-bottom: none;
+  }
+  .subcategoryBlock {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 800px;
+    background-color: $topMenu-backgroud;
+    min-height: 100%;
+    box-shadow: $myMenuBoxShadow;
+    padding: 10px;
+    box-sizing: border-box;
+    border-top-right-radius: $my-border-radius;
+    border-bottom-right-radius: $my-border-radius;
+
+    list-style: none;
+    display: none;
+    z-index: -1 !important;
+
+    &.visible {
+      display: block;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+
+      .subcategoryItem {
+        padding: 10px;
+        margin: 5px;
+        transition: background-color 0.3s ease;
+        text-align: center;
+        flex: 1 1 calc(25% - 20px);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: $my-border-radius;
+        box-shadow: $myMenuBoxShadow;
+        border: solid 1px transparent;
+        background-color: white;
+        max-width: 185px;
+
+        a {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          img {
+            //width: 80px;
+            object-fit: contain;
+            margin-bottom: 8px;
+            border-radius: 4px;
+          }
+        }
+
+        &:hover {
+          border: solid 1px $gold-color;
+        }
+      }
+    }
+  }
+}

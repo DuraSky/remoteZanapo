@@ -1,0 +1,66 @@
+@import "./styles/variables";
+
+.topProducts {
+  margin: 10px 0;
+
+  .topHeading {
+    padding: 5px 0;
+  }
+
+  .productCard {
+    background-color: $white-color;
+    box-shadow: $myMediumBoxShadow;
+    border-radius: $my-border-radius;
+    margin-bottom: 10px;
+    padding: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    @media (min-width: 576px) {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+
+    .productImage {
+      object-fit: contain;
+    }
+
+    .productText {
+      margin-left: 10px;
+      flex-grow: 1;
+
+      .productName {
+        font-size: $category-top-seller-heading;
+        font-weight: $category-top-seller-heading-weight;
+      }
+
+      .productDescription {
+        font-size: $category-top-seller-description;
+        font-weight: $category-top-seller-description-weight;
+      }
+    }
+
+    .productPrice {
+      display: flex;
+      margin-top: 10px;
+      justify-content: center;
+      color: $orange-color;
+
+      @media (min-width: 576px) {
+        margin-top: 0;
+        justify-content: flex-end;
+      }
+    }
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: $myHoverBoxShadow;
+    }
+  }
+}

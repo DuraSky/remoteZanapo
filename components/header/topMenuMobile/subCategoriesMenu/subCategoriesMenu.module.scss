@@ -1,0 +1,12 @@
+@import "./styles/variables";
+
+.subCategoriesContainer {
+  .subCategoryList {
+    .subCategoryItem {
+      padding: 15px;
+      &:hover {
+        background-color: $grey-color;
+      }
+    }
+  }
+}

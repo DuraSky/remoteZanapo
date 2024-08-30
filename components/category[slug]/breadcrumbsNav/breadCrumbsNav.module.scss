@@ -1,0 +1,63 @@
+@import "./styles/variables";
+
+.breadcrumbs {
+  //display: flex;
+  //align-items: center;
+  //font-size: 14px;
+  //color: #555;
+  padding-top: 10px;
+
+  .breadcrumbList {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    font-size: $breadCrumbs-size;
+    font-weight: $breadCrumbs-weight;
+    margin-bottom: 10px;
+
+    .breadcrumbItem {
+      display: flex;
+      //align-items: center;
+
+      .homeLink {
+        background-color: $grey-color;
+        display: flex;
+
+        &:hover {
+          svg {
+            fill: $orange-color;
+          }
+        }
+      }
+
+      .breadcrumbLink {
+        text-decoration: none;
+        background: #fff;
+        border-radius: 12px;
+        padding: 3px 12px;
+        box-shadow: $myBreadCrumbShadow;
+
+        &:hover {
+          box-shadow: $myBreadCrumbInsetShadow;
+          color: $orange-color;
+        }
+      }
+
+      .current {
+        //background-color: $grey-color;
+        color: $orange-color;
+        box-shadow: $myBreadCrumbInsetShadow;
+        //box-shadow: $myInsetBoxShadow;
+        cursor: pointer;
+      }
+
+      .breadcrumbSeparator {
+        display: flex;
+        align-items: center;
+        margin-left: 2px;
+      }
+    }
+  }
+}

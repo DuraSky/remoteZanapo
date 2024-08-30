@@ -1,0 +1,22 @@
+@import "./styles/variables";
+
+.contentWrapperHead {
+  //padding: 10px 0;
+  background-color: $grey-color;
+  // box-shadow: $myInsetBoxShadow;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  //margin: 0 !important;
+}
+
+.wrapper {
+  //width: 100%;
+  // min-width: 100vw !important;
+  // padding: 0 !important;
+  // margin: 0 !important;
+  // width: 100vw !important;
+  background-color: $grey-color;
+  //box-shadow: $myInsetBoxShadow;
+  //padding: 5px;
+}

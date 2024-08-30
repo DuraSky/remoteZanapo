@@ -1,0 +1,12 @@
+@import "./styles/variables";
+
+#filterAndProducts {
+  // display: flex;
+  @media (min-width: 768px) {
+    margin-top: 10px;
+  }
+  .mobileButton {
+    margin: 10px 0;
+    //background-color: $grey-color;
+  }
+}

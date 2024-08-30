@@ -1,0 +1,68 @@
+// categoriesButton.module.scss
+@import "./styles/variables";
+
+.menuButton {
+  display: none;
+  position: relative;
+  cursor: pointer;
+
+  @media (min-width: 992px) {
+    display: flex;
+    background: $grey-color;
+    //font-weight: 700;
+    outline: 0;
+    border: 2px solid $grey-color;
+    align-items: center;
+    padding: 8px 20px;
+    border-radius: $my-border-radius;
+    color: $black-color;
+    max-height: 50px;
+
+    .arrow {
+      position: absolute;
+      top: 10px;
+      right: 2px;
+    }
+
+    svg {
+      flex-shrink: 0;
+      margin-right: 10px;
+    }
+
+    p {
+      margin: 0;
+      flex-grow: 1;
+      font-weight: 400;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    //width: 90%;
+  }
+
+  &:hover .dropdown {
+    display: block;
+  }
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  z-index: 9999 !important;
+  top: 100%;
+  left: 0;
+  background-color: $white-color;
+  //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: $myMenuBoxShadow;
+  border-bottom-left-radius: $my-border-radius;
+  border-bottom-right-radius: $my-border-radius;
+  font-weight: $topMenu-font-weight;
+
+  //border: 1px solid #ccc;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  // border: 1px solid #ccc;
+}

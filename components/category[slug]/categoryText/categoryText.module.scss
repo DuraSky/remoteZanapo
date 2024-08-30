@@ -1,0 +1,55 @@
+@import "./styles/variables";
+
+.categoryText {
+  font-weight: $category-description-weight;
+  margin-bottom: 10px;
+
+  a {
+    color: $orange-color;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+      color: black;
+    }
+  }
+
+  h2 {
+    margin-bottom: 10px;
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  position: relative;
+  // margin-top: 5px;
+
+  //border-top: solid 1px;
+  &::after {
+    content: "";
+    width: 100%;
+    border-top: 2px dotted $darker-grey-color;
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    z-index: 0;
+  }
+  .descriptionToggleButton {
+    border: none;
+    background-color: $grey-color;
+    display: flex;
+    z-index: 1;
+
+    svg {
+      fill: $orange-color;
+    }
+
+    .arrowIcon.opened {
+      transform: rotate(180deg);
+    }
+  }
+}
