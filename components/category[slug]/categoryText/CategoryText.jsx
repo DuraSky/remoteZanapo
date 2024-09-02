@@ -9,7 +9,7 @@ export const CategoryText = ({
 }) => {
   return (
     <>
-      <h2>{category.name}</h2>
+      <h2 className={styles.categoryHeading}>{category.name}</h2>
       <div
         className={styles.categoryText}
         dangerouslySetInnerHTML={{ __html: category.description_short }}

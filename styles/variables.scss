@@ -3,13 +3,16 @@ $globalFont: "Nunito", sans-serif;
 
 // color variables
 $gold-color: #cb9540;
+$rating-color: #f4a527;
 $dark-red-color: #c42b2b;
 $white-color: #fff;
 $orange-color: #ff4500;
+$orange-tint-color: #ffa280;
 $grey-color: #f7f7f7;
 $dark-grey-color: #f9f9f9;
 $darker-grey-color: #c6c6c6;
 $black-color: #333;
+$brown-color: #37241b;
 
 // BoxShadows
 $myLightBoxShadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
@@ -68,7 +71,7 @@ $category-products-headings-weight: 400;
 $category-top-seller-heading: 1rem;
 $category-top-seller-heading-weight: 600;
 
-$category-top-seller-description: 0.75rem;
+$category-top-seller-description: 13px;
 $category-top-seller-description-weight: 200;
 
 $category-top-seller-price: 1.1rem;

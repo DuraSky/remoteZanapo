@@ -5,6 +5,7 @@ export const MobileFilterComponent = ({
   filterCategories,
   handleCheckboxChange,
   filteredProductsCount,
+  productCount,
 }) => {
   const [isActive, setIsActive] = useState(false);
   const [isSliding, setIsSliding] = useState(false);
@@ -88,7 +89,7 @@ export const MobileFilterComponent = ({
                   className={styles.displayButton}
                   onClick={handleCloseFilters}
                 >
-                  Zobrazit {filteredProductsCount} produktů
+                  Zobrazit {productCount} produktů
                 </button>
               </div>
             </div>

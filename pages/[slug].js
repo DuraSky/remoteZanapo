@@ -14,6 +14,7 @@ const CategoryPage = ({ data }) => {
   const [breadcrumbsLinks, setBreadcrumbsLinks] = useState([]);
   const [filterCategories, setFilterCategories] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [productCount, setProductCound] = useState(0);
 
   console.log("received from api", data);
 
@@ -25,6 +26,7 @@ const CategoryPage = ({ data }) => {
     breadcrumbs,
     filters,
     products,
+    product_count,
   } = data;
 
   useEffect(() => {
@@ -51,6 +53,10 @@ const CategoryPage = ({ data }) => {
     if (products) {
       setFilteredProducts(products);
     }
+
+    if (productCount) {
+      setProductCound(product_count);
+    }
   }, [
     topMenu,
     setTopMenu,
@@ -59,6 +65,7 @@ const CategoryPage = ({ data }) => {
     breadcrumbs,
     filters,
     products,
+    product_count,
   ]);
 
   if (!category) {
@@ -75,7 +82,8 @@ const CategoryPage = ({ data }) => {
 
     try {
       const response = await fetch(
-        `https://api.test.zanapo.cz/api/v1/url/content?requested_path=${selectedFilterUrl}&elements=categoryfaq`
+        // `https://api.test.zanapo.cz/api/v1/url/content?requested_path=${selectedFilterUrl}&elements=categoryfaq`
+        `http://pavel-fedora.tailcfce08.ts.net:8000/api/v1/url/content?requested_path=${selectedFilterUrl}&elements=categoryfaq`
       );
       const data = await response.json();
 
@@ -104,6 +112,7 @@ const CategoryPage = ({ data }) => {
         filterCategories={filterCategories}
         filteredProducts={filteredProducts}
         handleCheckboxChange={handleCheckboxChange}
+        productCount={productCount}
       />
     </>
   );
@@ -113,8 +122,8 @@ export async function getServerSideProps({ params }) {
   const { slug } = params;
 
   const res = await fetch(
-    `https://api.test.zanapo.cz/api/v1/url/content?requested_path=/${slug}&elements=categoryfaq`,
-    // `http://pavel-fedora.tailcfce08.ts.net:8000/api/v1/url/content?requested_path=/${slug}&elements=categoryfaq`,
+    // `https://api.test.zanapo.cz/api/v1/url/content?requested_path=/${slug}&elements=categoryfaq`,
+    `http://pavel-fedora.tailcfce08.ts.net:8000/api/v1/url/content?requested_path=/${slug}&elements=categoryfaq`,
     {
       method: "GET",
       headers: {

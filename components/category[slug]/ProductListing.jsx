@@ -9,9 +9,9 @@ export const ProductListing = ({
   filterCategories,
   handleCheckboxChange,
   filteredProducts,
+  productCount,
 }) => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-
+  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     const handleResize = () => {
       const viewportWidth = document.documentElement.clientWidth;
@@ -35,6 +35,7 @@ export const ProductListing = ({
             <MobileFilterComponent
               filterCategories={filterCategories}
               handleCheckboxChange={handleCheckboxChange}
+              productCount={productCount}
             />
           </div>
         ) : (

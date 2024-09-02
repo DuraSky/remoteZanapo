@@ -1,14 +1,64 @@
 @import "./styles/variables";
 
 .filter {
-  //   color: red;
   font-size: 14px;
 
-  ul {
-    margin: 0;
-    padding: 0;
-    li {
+  .filterCategory {
+    margin-bottom: 10px;
+
+    .categoryTitle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      //border-bottom: solid 1px $darker-grey-color;
+      box-shadow: $myLightBoxShadow;
+      font-size: 14px;
+      font-weight: 700;
+      color: $brown-color;
+      //padding: 10px;
+      //background-color: #f5f5f5;
+      //border-radius: 5px;
+
+      .arrow {
+        transition: transform 0.3s ease;
+        display: flex;
+
+        svg {
+          path {
+            fill: $brown-color;
+          }
+        }
+
+        &.open {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    .filterContent {
+      overflow: hidden;
+      transition: max-height 0.3s ease, opacity 0.3s ease;
+      max-height: 500px;
+      opacity: 1;
+
+      &.closed {
+        max-height: 0;
+        opacity: 0;
+      }
+    }
+
+    .filterList {
+      margin: 0;
+      padding: 10px 0 0 0;
       list-style: none;
+
+      .filterItem {
+        padding: 2px 0;
+        span {
+          margin-left: 5px;
+        }
+      }
     }
   }
 }
