@@ -21,7 +21,7 @@ const CategoryPage = ({ data }) => {
   const [productsPerPage, setProductsPerPage] = useState(0);
 
   const categoryName = data.category ? data.category.slug : "";
-  console.log(data, "gettin this data");
+  // console.log(data, "gettin this data");
 
   useEffect(() => {
     if (data) {
@@ -118,6 +118,16 @@ const CategoryPage = ({ data }) => {
       if (data.filters) {
         setFilterCategories(data.filters);
       }
+
+      console.log("DATA IN HANDLECHECKBOX", data);
+
+      if (data.sort_links) {
+        setSortLinks(data.sort_links);
+      }
+
+      // if (data.sort_data) {
+      //   setSortLinks(data.sort_links);
+      // }
     } catch (error) {
       console.error("Error fetching filtered data:", error);
     }
