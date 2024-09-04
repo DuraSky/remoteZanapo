@@ -16,6 +16,23 @@
   margin: 0;
 }
 
+.mobilePriceFilter {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  //align-items: flex-start;
+  width: 90%;
+  margin: 0 auto;
+  //justify-content: center;
+  margin-top: 30px;
+
+  .mobileSliderHeader {
+    font-size: 14px;
+    margin-left: 5px;
+    font-weight: bold;
+  }
+}
+
 .mobileFilterContainer {
   background-color: $white-color;
   width: 100%;

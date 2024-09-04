@@ -10,6 +10,8 @@ export const ProductListing = ({
   handleCheckboxChange,
   filteredProducts,
   productCount,
+  priceFilter,
+  sortLinks,
 }) => {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -36,20 +38,25 @@ export const ProductListing = ({
               filterCategories={filterCategories}
               handleCheckboxChange={handleCheckboxChange}
               productCount={productCount}
+              priceFilter={priceFilter}
             />
           </div>
         ) : (
-          <div className={`col-md-2`}>
+          <div className={`col-md-3 col-lg-2`}>
             <FilterComponent
               filterCategories={filterCategories}
               handleCheckboxChange={handleCheckboxChange}
+              priceFilter={priceFilter}
             />
           </div>
         )}
 
-        <div className="col-12 col-md-10">
+        <div className="col-12 col-md-9 col-lg-10">
           <div className="row">
-            <SortBar />
+            <SortBar
+              sortLinks={sortLinks}
+              handleCheckboxChange={handleCheckboxChange}
+            />
           </div>
           <div className="row">
             <Product filteredProducts={filteredProducts} />

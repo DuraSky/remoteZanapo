@@ -1,0 +1,138 @@
+@import "./styles/variables";
+
+.sliderContainer {
+  margin-bottom: 20px;
+  .slider {
+    position: relative;
+    height: 6px;
+    margin-bottom: 20px;
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    pointer-events: none;
+    z-index: 2;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 10px;
+      height: 20px;
+      background-color: $darker-grey-color;
+      border-radius: $my-border-radius;
+      //border-radius: 50%;
+      //border: 2px solid white;
+      cursor: pointer;
+      pointer-events: auto;
+      z-index: 3;
+      position: relative;
+      box-shadow: $myMediumBoxShadow;
+    }
+
+    &::-moz-range-thumb {
+      width: 10px;
+      height: 20px;
+      background-color: $darker-grey-color;
+      border-radius: $my-border-radius;
+
+      //border: 2px solid white;
+      cursor: pointer;
+      pointer-events: auto;
+      z-index: 3;
+      position: relative;
+      box-shadow: $myMediumBoxShadow;
+    }
+
+    &::-ms-thumb {
+      width: 10px;
+      height: 20px;
+      background-color: $darker-grey-color;
+      border-radius: $my-border-radius;
+
+      border: 2px solid white;
+      cursor: pointer;
+      pointer-events: auto;
+      z-index: 3;
+      position: relative;
+      box-shadow: $myMediumBoxShadow;
+    }
+
+    &::-webkit-slider-runnable-track,
+    &::-moz-range-track,
+    &::-ms-track {
+      background: transparent;
+      border: none;
+      color: transparent;
+    }
+  }
+
+  .sliderTrack {
+    position: absolute;
+    width: 100%;
+    height: 6px;
+    background-color: $darker-grey-color;
+    border-radius: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+
+  .sliderRange {
+    position: absolute;
+    height: 6px;
+    background-color: $gold-color;
+    border-radius: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .inputsContainer {
+    display: flex;
+    //justify-content: space-around;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    margin-top: 10px;
+
+    .inputField {
+      //display: flex;
+      position: relative;
+      //flex: 1;
+
+      input {
+        //position: relative;
+        //width: 100%;
+        padding: 5px;
+        padding-right: 20px; /* Adjust padding to make room for "Kč" */
+
+        border: 1px solid $darker-grey-color;
+        border-radius: $my-border-radius;
+        font-size: 14px;
+        text-align: center;
+        font-family: $globalFont;
+
+        &:focus {
+          outline: none;
+          border-color: $gold-color;
+        }
+      }
+      .currency {
+        position: absolute;
+        right: 10px; /* Position the "Kč" */
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 14px;
+        color: #333;
+      }
+    }
+  }
+}

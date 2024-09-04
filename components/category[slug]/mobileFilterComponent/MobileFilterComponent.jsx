@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styles from "./mobileFilterComponent.module.scss";
+import { PriceSlider } from "../../priceSlider/PriceSlider";
 
 export const MobileFilterComponent = ({
   filterCategories,
   handleCheckboxChange,
   filteredProductsCount,
   productCount,
+  priceFilter,
 }) => {
   const [isActive, setIsActive] = useState(false);
   const [isSliding, setIsSliding] = useState(false);
@@ -60,6 +62,16 @@ export const MobileFilterComponent = ({
               }`}
             >
               <ul>
+                <div className={styles.mobilePriceFilter}>
+                  {/* <p className={styles.mobileSliderHeader}>Cenové rozpětí</p> */}
+
+                  {/* <div className={styles.sliderWrapper}> */}
+                  <PriceSlider
+                    priceFilter={priceFilter}
+                    handleCheckboxChange={handleCheckboxChange}
+                  />
+                  {/* </div> */}
+                </div>
                 {filterCategories.map((category, catIdx) => (
                   <li key={catIdx}>
                     <div className={styles.filterCategory}>
