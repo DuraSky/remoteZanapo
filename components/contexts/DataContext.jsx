@@ -14,7 +14,7 @@ export const DataProvider = ({ children }) => {
   const fetchHomepageData = async () => {
     try {
       const response = await fetch(
-        "http://pavel-fedora.tailcfce08.ts.net:8000/api/v1/homepage/content?sections=51,55&elements=toplinks,tips,favouritecategories",
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/homepage/content?sections=51,55&elements=toplinks,tips,favouritecategories`,
         // "https://api.test.zanapo.cz/api/v1/homepage/content?sections=51,55&elements=toplinks,tips,favouritecategories",
         {
           method: "GET",

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Ratings } from "../../carousel/ratings/Ratings";
 
 export const Product = ({ filteredProducts }) => {
+  console.log("RECIEVED PROCUTS", filteredProducts);
   const truncateText = (text, maxLength) => {
     if (text.length <= maxLength) return text;
     return text.substring(0, text.lastIndexOf(" ", maxLength)) + "...";
@@ -68,9 +69,7 @@ export const Product = ({ filteredProducts }) => {
                 style={{ color: product.availability_color }}
               >
                 <p>{product.availability_text}</p>
-                <p className={styles.deliveryDate}>
-                  Můžete mít v pondělí 2. 9.
-                </p>
+                <p className={styles.deliveryDate}>{product.delivery_date}</p>
               </div>
             </div>
           </div>

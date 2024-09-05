@@ -15,13 +15,14 @@ const CategoryPage = ({ data }) => {
   const [breadcrumbsLinks, setBreadcrumbsLinks] = useState([]);
   const [filterCategories, setFilterCategories] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [productCount, setProductCount] = useState(0);
+  //const [productCount, setProductCount] = useState(0);
   const [priceFilter, setPriceFilter] = useState(null);
   const [sortLinks, setSortLinks] = useState(null);
   const [productsPerPage, setProductsPerPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(data.active_page || 1);
 
+  console.log(data);
   const categoryName = data.category ? data.category.slug : "";
-  // console.log(data, "gettin this data");
 
   useEffect(() => {
     if (data) {
@@ -43,44 +44,44 @@ const CategoryPage = ({ data }) => {
         setTopMenu(topMenu.categories);
       }
 
-      if (best_products) {
-        setBestProducts(best_products);
-      }
-
-      if (elements) {
-        setApiElements(elements);
-      }
-
-      if (breadcrumbs) {
-        setBreadcrumbsLinks(breadcrumbs);
-      }
-
-      if (filters) {
-        setFilterCategories(filters);
-      }
-
-      if (products) {
-        setFilteredProducts(products);
-      }
-
-      if (product_count) {
-        setProductCount(product_count);
-      }
-
-      if (price_filter) {
-        setPriceFilter(price_filter);
-      }
-
-      if (sort_links) {
-        setSortLinks(sort_links);
-      }
-      if (per_page) {
-        setProductsPerPage(per_page);
-      }
+      setBestProducts(best_products || []);
+      setApiElements(elements || []);
+      setBreadcrumbsLinks(breadcrumbs || []);
+      setFilterCategories(filters || []);
+      setFilteredProducts(products || []);
+      // setProductCount(product_count || 0);
+      setPriceFilter(price_filter || null);
+      setSortLinks(sort_links || null);
+      setProductsPerPage(per_page || 0);
     }
-    console.log(data);
   }, [data, setTopMenu]);
 
+  const handlePageChange = async (newPage, pagination_link) => {
+    setCurrentPage(newPage);
+    setFilteredProducts([]);
+
+    const targetUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/url/content?requested_path=${pagination_link}&elements=categoryfaq`;
+
+    // Update the browser's URL (shallow routing)
+    router.push(pagination_link, undefined, { shallow: true });
+
+    // Fetch new data for the selected page
+    try {
+      const response = await fetch(targetUrl);
+      const newData = await response.json();
+
+      // setFilteredProducts([]);
+      // setFilteredProducts(newData.products);
+      console.log("NEW PRODUCTS", newData);
+      if (newData.products) setFilteredProducts(newData.products);
+      if (newData.filters) setFilterCategories(newData.filters);
+      if (newData.sort_links) setSortLinks(newData.sort_links);
+    } catch (error) {
+      console.error("Error fetching new page data:", error);
+    }
+  };
+
+  // KEEPING handleCheckboxChange INTACT
   const handleCheckboxChange = async (categoryIndex, itemIndex, updatedUrl) => {
     let selectedFilterUrl;
 
@@ -95,10 +96,9 @@ const CategoryPage = ({ data }) => {
     }
 
     const strippedFilterUrl = selectedFilterUrl.replace(/^\/schach/, "");
-
     const currentPath = router.asPath.split("?")[0];
-
     let newPath;
+
     if (router.asPath.includes(strippedFilterUrl)) {
       newPath = currentPath.replace(strippedFilterUrl, "").replace("//", "/");
     } else {
@@ -109,61 +109,16 @@ const CategoryPage = ({ data }) => {
 
     try {
       const response = await fetch(
-        `http://pavel-fedora.tailcfce08.ts.net:8000/api/v1/url/content?requested_path=${newPath}&elements=categoryfaq`
+        `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/url/content?requested_path=${newPath}&elements=categoryfaq`
       );
       const data = await response.json();
 
       setFilteredProducts(data.products);
-
-      if (data.filters) {
-        setFilterCategories(data.filters);
-      }
-
-      console.log("DATA IN HANDLECHECKBOX", data);
-
-      if (data.sort_links) {
-        setSortLinks(data.sort_links);
-      }
-
-      // if (data.sort_data) {
-      //   setSortLinks(data.sort_links);
-      // }
+      if (data.filters) setFilterCategories(data.filters);
+      if (data.sort_links) setSortLinks(data.sort_links);
     } catch (error) {
       console.error("Error fetching filtered data:", error);
     }
-  };
-
-  useEffect(() => {
-    const handleUrlChange = () => {
-      const currentPath = router.asPath;
-      const newFilterCategories = [...filterCategories];
-
-      filterCategories.forEach((category, catIndex) => {
-        category.filter_items.forEach((item, itemIndex) => {
-          if (!currentPath.includes(item.url)) {
-            newFilterCategories[catIndex].filter_items[
-              itemIndex
-            ].is_in_filter = false;
-          }
-        });
-      });
-
-      setFilterCategories(newFilterCategories);
-    };
-
-    router.events.on("routeChangeComplete", handleUrlChange);
-
-    return () => {
-      router.events.off("routeChangeComplete", handleUrlChange);
-    };
-  }, [router, filterCategories]);
-
-  if (!data.category) {
-    return <div>Kategorie nenalezena</div>;
-  }
-
-  const toggleDescription = () => {
-    setShowLongDescription((prevState) => !prevState);
   };
 
   return (
@@ -173,29 +128,34 @@ const CategoryPage = ({ data }) => {
         showLongDescription={showLongDescription}
         apiElements={apiElements}
         bestProducts={bestProducts}
-        toggleDescription={toggleDescription}
+        toggleDescription={() => setShowLongDescription(!showLongDescription)}
         breadcrumbsLinks={breadcrumbsLinks}
       />
 
       <ProductListing
         filterCategories={filterCategories}
         filteredProducts={filteredProducts}
-        handleCheckboxChange={handleCheckboxChange}
-        productCount={productCount}
+        handleCheckboxChange={handleCheckboxChange} // KEEPING IT INTACT
+        // productCount={productCount}
         priceFilter={priceFilter}
         sortLinks={sortLinks}
+        currentPage={currentPage}
+        productsPerPage={productsPerPage}
+        paginationLinks={data.pagination_links}
+        onPageChange={handlePageChange}
       />
     </>
   );
 };
 
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps({ params, query }) {
   const { slug } = params;
+  const { page = 1 } = query;
 
   const slugString = Array.isArray(slug) ? slug.join("/") : slug;
 
   const res = await fetch(
-    `http://pavel-fedora.tailcfce08.ts.net:8000/api/v1/url/content?requested_path=/${slugString}&elements=categoryfaq`,
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/url/content?requested_path=/${slugString}&page=${page}&elements=categoryfaq`,
     {
       method: "GET",
       headers: {

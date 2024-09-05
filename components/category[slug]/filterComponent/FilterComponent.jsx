@@ -72,20 +72,32 @@ export const FilterComponent = ({
               }`}
             >
               <ul className={styles.filterList}>
-                {displayedItems.map((item, itemIdx) => (
-                  <li key={itemIdx} className={styles.filterItem}>
-                    <label>
-                      <input
-                        type="checkbox"
-                        checked={item.is_in_filter}
-                        onChange={() => handleCheckboxChange(catIdx, itemIdx)}
-                      />
-                      <span>
-                        {item.name} ({item.items_count})
-                      </span>
-                    </label>
-                  </li>
-                ))}
+                {displayedItems.map((item, itemIdx) => {
+                  // Convert items_count to a number for comparison
+                  const itemCount = parseInt(item.items_count, 10);
+                  const isDisabled = !item.is_in_filter && itemCount === 0;
+
+                  return (
+                    <li
+                      key={itemIdx}
+                      className={`${styles.filterItem} ${
+                        isDisabled ? styles.disabled : ""
+                      }`}
+                    >
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked={item.is_in_filter}
+                          onChange={() => handleCheckboxChange(catIdx, itemIdx)}
+                          disabled={isDisabled}
+                        />
+                        <span>
+                          {item.name} ({item.items_count})
+                        </span>
+                      </label>
+                    </li>
+                  );
+                })}
               </ul>
 
               {category.filter_items.length > 6 && (
