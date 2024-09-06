@@ -1,16 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./product.module.scss";
 import { Label } from "../../carousel/labels/Label";
 import Image from "next/image";
 import Link from "next/link";
 import { Ratings } from "../../carousel/ratings/Ratings";
+import { LoadingSpinner } from "../../LoadingSpinner/LoadingSpinner";
 
 export const Product = ({ filteredProducts }) => {
-  console.log("RECIEVED PROCUTS", filteredProducts);
+  const [loading, setLoading] = useState(true);
+
+  //console.log("RECIEVED PROCUTS", filteredProducts);
   const truncateText = (text, maxLength) => {
     if (text.length <= maxLength) return text;
     return text.substring(0, text.lastIndexOf(" ", maxLength)) + "...";
   };
+
+  const isLoading = !filteredProducts || filteredProducts.length === 0;
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
   return (
     <div className={`${styles.allProducts}`}>
       {filteredProducts.map((product) => (

@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
-import { useRouter } from "next/router"; // Import useRouter for URL manipulation
+import { useRouter } from "next/router";
 import { DataContext } from "../components/contexts/DataContext";
 import { CategoryLayout } from "../components/CategoryLayout";
 import { TopSection } from "../components/category[slug]/TopSection";
@@ -62,10 +62,8 @@ const CategoryPage = ({ data }) => {
 
     const targetUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/url/content?requested_path=${pagination_link}&elements=categoryfaq`;
 
-    // Update the browser's URL (shallow routing)
     router.push(pagination_link, undefined, { shallow: true });
 
-    // Fetch new data for the selected page
     try {
       const response = await fetch(targetUrl);
       const newData = await response.json();
@@ -81,7 +79,6 @@ const CategoryPage = ({ data }) => {
     }
   };
 
-  // KEEPING handleCheckboxChange INTACT
   const handleCheckboxChange = async (categoryIndex, itemIndex, updatedUrl) => {
     let selectedFilterUrl;
 
@@ -135,7 +132,7 @@ const CategoryPage = ({ data }) => {
       <ProductListing
         filterCategories={filterCategories}
         filteredProducts={filteredProducts}
-        handleCheckboxChange={handleCheckboxChange} // KEEPING IT INTACT
+        handleCheckboxChange={handleCheckboxChange}
         // productCount={productCount}
         priceFilter={priceFilter}
         sortLinks={sortLinks}
