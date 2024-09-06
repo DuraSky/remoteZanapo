@@ -31,6 +31,7 @@ export const DataProvider = ({ children }) => {
       const jsonData = await response.json();
 
       console.log("Fetched homepage data:", jsonData);
+      console.log("HDSFSFSF", jsonData.elements[0]);
 
       if (jsonData.top_menu && jsonData.top_menu.categories) {
         setTopMenu(jsonData.top_menu.categories);
@@ -49,7 +50,7 @@ export const DataProvider = ({ children }) => {
       }
 
       if (jsonData.elements) {
-        setElements(jsonData.elements);
+        setElements(jsonData.elements[0]);
       }
     } catch (error) {
       console.error("Error fetching homepage data:", error);

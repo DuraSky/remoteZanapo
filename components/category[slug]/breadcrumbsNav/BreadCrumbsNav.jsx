@@ -4,7 +4,7 @@ import styles from "./breadCrumbsNav.module.scss";
 
 export const BreadCrumbsNav = ({ breadcrumbsLinks }) => {
   // Reverse the breadcrumbsLinks array
-  const reversedBreadcrumbs = [...breadcrumbsLinks].reverse();
+  //const reversedBreadcrumbs = [...breadcrumbsLinks].reverse();
 
   return (
     <nav className={styles.breadcrumbs}>
@@ -32,9 +32,9 @@ export const BreadCrumbsNav = ({ breadcrumbsLinks }) => {
             </span>
           </Link>
         </li>
-        {reversedBreadcrumbs.map((breadcrumb, index) => (
+        {breadcrumbsLinks.map((breadcrumb, index) => (
           <li key={index} className={styles.breadcrumbItem}>
-            {index === reversedBreadcrumbs.length - 1 ? (
+            {index === breadcrumbsLinks.length - 1 ? (
               <span className={`${styles.breadcrumbLink} ${styles.current}`}>
                 {breadcrumb.title}
               </span>
@@ -43,7 +43,7 @@ export const BreadCrumbsNav = ({ breadcrumbsLinks }) => {
                 {breadcrumb.title}
               </Link>
             )}
-            {index < reversedBreadcrumbs.length - 1 && (
+            {index < breadcrumbsLinks.length - 1 && (
               <span className={styles.breadcrumbSeparator}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

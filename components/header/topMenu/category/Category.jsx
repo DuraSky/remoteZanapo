@@ -83,7 +83,7 @@ const Category = ({
             width={60}
             height={60}
           />
-          {category.name}
+          <p>{category.name}</p>
         </Link>
       </div>
       <div

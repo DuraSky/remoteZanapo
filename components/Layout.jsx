@@ -4,6 +4,8 @@ import { Banner } from "./banner/Banner";
 import { Carousel } from "./carousel/Carousel";
 import { BlogPosts } from "./blogposts/BlogPosts";
 
+import { TopCategories } from "./topCategories/TopCategories";
+
 import { DataContext } from "./contexts/DataContext";
 
 import { ElementTest } from "./elementTest/ElementTest";
@@ -15,14 +17,15 @@ export const Layout = ({ children }) => {
     <>
       <Header />
       <Banner />
+      <TopCategories />
+
       {sections.map((section, index) => (
         <Carousel key={index} section={section} />
       ))}
+
       <BlogPosts />
 
-      <ElementTest />
-
-      {/* <TopCategories /> */}
+      {/* <ElementTest /> */}
     </>
   );
 };

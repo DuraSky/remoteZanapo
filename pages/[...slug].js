@@ -21,7 +21,7 @@ const CategoryPage = ({ data }) => {
   const [productsPerPage, setProductsPerPage] = useState(0);
   const [currentPage, setCurrentPage] = useState(data.active_page || 1);
 
-  console.log(data);
+  // console.log(data);
   const categoryName = data.category ? data.category.slug : "";
 
   useEffect(() => {
@@ -109,10 +109,14 @@ const CategoryPage = ({ data }) => {
         `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/url/content?requested_path=${newPath}&elements=categoryfaq`
       );
       const data = await response.json();
+      console.log("New data", data);
 
       setFilteredProducts(data.products);
+      setCurrentPage(1);
+      setFilteredProducts([]);
       if (data.filters) setFilterCategories(data.filters);
       if (data.sort_links) setSortLinks(data.sort_links);
+      if (data.products) setFilteredProducts(data.products);
     } catch (error) {
       console.error("Error fetching filtered data:", error);
     }

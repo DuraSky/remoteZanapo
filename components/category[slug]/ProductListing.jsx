@@ -1,9 +1,11 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { FilterComponent } from "./filterComponent/FilterComponent";
 import { Product } from "./product/Product";
 import { SortBar } from "./sortBar/SortBar";
 import { Pagination } from "../pagination/Pagination";
 import styles from "./productListing.module.scss";
+
+import { MobileFilterComponent } from "./mobileFilterComponent/MobileFilterComponent";
 
 export const ProductListing = ({
   filterCategories,
@@ -18,6 +20,30 @@ export const ProductListing = ({
   onPageChange,
 }) => {
   const sortBarRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [showGoUpButton, setShowGoUpButton] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sortBarRef.current) {
+        const sortBarTop =
+          sortBarRef.current.getBoundingClientRect().top + window.scrollY;
+        const currentScroll = window.scrollY;
+
+        if (currentScroll > sortBarTop) {
+          setShowGoUpButton(true);
+        } else {
+          setShowGoUpButton(false);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const handleScrollUp = () => {
     if (sortBarRef.current) {
@@ -31,16 +57,43 @@ export const ProductListing = ({
     }
     onPageChange(page, url);
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      const viewportWidth = document.documentElement.clientWidth;
+      setIsMobile(viewportWidth < 768);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section className="container-fluid" id={styles.filterAndProducts}>
       <div className="row">
-        <div className={`col-md-3 col-lg-2`}>
-          <FilterComponent
-            filterCategories={filterCategories}
-            handleCheckboxChange={handleCheckboxChange}
-            priceFilter={priceFilter}
-          />
-        </div>
+        {isMobile ? (
+          <div
+            className={`${styles.mobileButton} d-flex justify-content-center`}
+          >
+            <MobileFilterComponent
+              filterCategories={filterCategories}
+              handleCheckboxChange={handleCheckboxChange}
+              //productCount={productCount}
+              priceFilter={priceFilter}
+            />
+          </div>
+        ) : (
+          <div className={`col-md-3 col-lg-2`}>
+            <FilterComponent
+              filterCategories={filterCategories}
+              handleCheckboxChange={handleCheckboxChange}
+              priceFilter={priceFilter}
+            />
+          </div>
+        )}
 
         <div className="col-12 col-md-9 col-lg-10">
           <div className="row">
@@ -58,7 +111,8 @@ export const ProductListing = ({
               currentPage={currentPage}
               paginationLinks={paginationLinks}
               onPageChange={handlePageChange}
-              handleScrollUp={handleScrollUp} // Passing handleScrollUp here
+              handleScrollUp={handleScrollUp}
+              showGoUpButton={showGoUpButton}
             />
           </div>
         </div>
