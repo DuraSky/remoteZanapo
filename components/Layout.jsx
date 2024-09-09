@@ -5,6 +5,7 @@ import { Carousel } from "./carousel/Carousel";
 import { BlogPosts } from "./blogposts/BlogPosts";
 
 import { TopCategories } from "./topCategories/TopCategories";
+import { FavCategories } from "../elements/favcategories/FavCategories";
 
 import { DataContext } from "./contexts/DataContext";
 
@@ -17,7 +18,8 @@ export const Layout = ({ children }) => {
     <>
       <Header />
       <Banner />
-      <TopCategories />
+      {/* <TopCategories /> */}
+      <FavCategories />
 
       {sections.map((section, index) => (
         <Carousel key={index} section={section} />

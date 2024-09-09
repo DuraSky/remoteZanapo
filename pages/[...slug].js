@@ -20,6 +20,7 @@ const CategoryPage = ({ data }) => {
   const [sortLinks, setSortLinks] = useState(null);
   const [productsPerPage, setProductsPerPage] = useState(0);
   const [currentPage, setCurrentPage] = useState(data.active_page || 1);
+  const [paginationLinks, setPaginationLinks] = useState([]);
 
   // console.log(data);
   const categoryName = data.category ? data.category.slug : "";
@@ -38,6 +39,7 @@ const CategoryPage = ({ data }) => {
         price_filter,
         sort_links,
         per_page,
+        pagination_links,
       } = data;
 
       if (topMenu && setTopMenu) {
@@ -53,6 +55,7 @@ const CategoryPage = ({ data }) => {
       setPriceFilter(price_filter || null);
       setSortLinks(sort_links || null);
       setProductsPerPage(per_page || 0);
+      setPaginationLinks(pagination_links);
     }
   }, [data, setTopMenu]);
 
@@ -74,6 +77,8 @@ const CategoryPage = ({ data }) => {
       if (newData.products) setFilteredProducts(newData.products);
       if (newData.filters) setFilterCategories(newData.filters);
       if (newData.sort_links) setSortLinks(newData.sort_links);
+      if (newData.pagination_links)
+        setPaginationLinks(newData.pagination_links);
     } catch (error) {
       console.error("Error fetching new page data:", error);
     }
@@ -92,16 +97,18 @@ const CategoryPage = ({ data }) => {
       return;
     }
 
-    const strippedFilterUrl = selectedFilterUrl.replace(/^\/schach/, "");
-    const currentPath = router.asPath.split("?")[0];
-    let newPath;
+    // const strippedFilterUrl = "test";
+    // const currentPath = router.asPath.split("?")[0];
 
-    if (router.asPath.includes(strippedFilterUrl)) {
-      newPath = currentPath.replace(strippedFilterUrl, "").replace("//", "/");
-    } else {
-      newPath = `${currentPath}${strippedFilterUrl}`.replace("//", "/");
-    }
+    let newPath = selectedFilterUrl;
 
+    // if (router.asPath.includes(strippedFilterUrl)) {
+    //   newPath = currentPath.replace(strippedFilterUrl, "").replace("//", "/");
+    // } else {
+    //   newPath = `${currentPath}${strippedFilterUrl}`.replace("//", "/");
+    // }
+
+    console.log("NEW PATH", newPath);
     window.history.pushState({}, "", newPath);
 
     try {
@@ -112,11 +119,13 @@ const CategoryPage = ({ data }) => {
       console.log("New data", data);
 
       setFilteredProducts(data.products);
-      setCurrentPage(1);
-      setFilteredProducts([]);
+      // setCurrentPage(1);
+      console.log("DFGSFSF", data.sort_links);
+      // setFilteredProducts([]);
       if (data.filters) setFilterCategories(data.filters);
       if (data.sort_links) setSortLinks(data.sort_links);
-      if (data.products) setFilteredProducts(data.products);
+      if (data.pagination_links) setPaginationLinks(data.pagination_links);
+      // if (data.products) setFilteredProducts(data.products);
     } catch (error) {
       console.error("Error fetching filtered data:", error);
     }
@@ -142,7 +151,7 @@ const CategoryPage = ({ data }) => {
         sortLinks={sortLinks}
         currentPage={currentPage}
         productsPerPage={productsPerPage}
-        paginationLinks={data.pagination_links}
+        paginationLinks={paginationLinks}
         onPageChange={handlePageChange}
       />
     </>

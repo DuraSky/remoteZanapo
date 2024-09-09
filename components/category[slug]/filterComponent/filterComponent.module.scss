@@ -58,6 +58,10 @@
         label {
           display: flex;
           align-items: center;
+          &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+          }
         }
 
         input[type="checkbox"] {
