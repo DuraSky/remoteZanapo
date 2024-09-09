@@ -4,12 +4,12 @@ import { Banner } from "./banner/Banner";
 import { Carousel } from "./carousel/Carousel";
 import { BlogPosts } from "./blogposts/BlogPosts";
 
-import { TopCategories } from "./topCategories/TopCategories";
 import { FavCategories } from "../elements/favcategories/FavCategories";
 
 import { DataContext } from "./contexts/DataContext";
 
 import { ElementTest } from "./elementTest/ElementTest";
+import { Footer } from "../elements/footer/Footer";
 
 export const Layout = ({ children }) => {
   const { sections } = useContext(DataContext);
@@ -18,7 +18,6 @@ export const Layout = ({ children }) => {
     <>
       <Header />
       <Banner />
-      {/* <TopCategories /> */}
       <FavCategories />
 
       {sections.map((section, index) => (
@@ -26,6 +25,8 @@ export const Layout = ({ children }) => {
       ))}
 
       <BlogPosts />
+
+      <Footer />
 
       {/* <ElementTest /> */}
     </>

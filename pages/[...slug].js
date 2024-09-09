@@ -5,6 +5,7 @@ import { CategoryLayout } from "../components/CategoryLayout";
 import { TopSection } from "../components/category[slug]/TopSection";
 import { ProductListing } from "../components/category[slug]/ProductListing";
 import styles from "/styles/slug.module.scss";
+import { Footer } from "../elements/footer/Footer";
 
 const CategoryPage = ({ data }) => {
   const { setTopMenu } = useContext(DataContext);
@@ -154,6 +155,8 @@ const CategoryPage = ({ data }) => {
         paginationLinks={paginationLinks}
         onPageChange={handlePageChange}
       />
+
+      <Footer />
     </>
   );
 };

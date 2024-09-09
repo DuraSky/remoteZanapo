@@ -1,1 +1,67 @@
 @import "./styles/variables";
+
+.favCategoryWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  gap: 15px;
+
+  .category {
+    border-radius: $my-border-radius;
+    background-color: $grey-color;
+    box-shadow: $myMediumBoxShadow;
+    width: calc(100%);
+
+    // Adjust width to 25% per column with space in-between
+    padding: 20px;
+    //text-align: center;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      // box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (min-width: 500px) {
+      width: calc(50% - 50px);
+    }
+
+    @media (min-width: 992px) {
+      width: calc(25% - 20px);
+    }
+
+    .categoryHeader {
+      display: flex;
+      //flex-direction: column;
+      gap: 15px;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .subcategoryList {
+      display: flex;
+      flex-wrap: wrap;
+      //flex-direction: column;
+      //align-items: center;
+      gap: 3px;
+
+      a {
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 400;
+        transition: color 0.3s ease;
+
+        &:not(:last-child)::after {
+          content: " |";
+        }
+
+        &:hover {
+          color: $orange-color;
+        }
+      }
+    }
+  }
+  @media (min-width: 992px) {
+    flex-wrap: nowrap;
+  }
+}
