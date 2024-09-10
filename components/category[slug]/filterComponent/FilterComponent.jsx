@@ -92,7 +92,8 @@ export const FilterComponent = ({
                           disabled={isDisabled}
                         />
                         <span>
-                          {item.name} ({item.items_count})
+                          <p>{item.name}</p>
+                          <p className={styles.itemCount}>{item.items_count}</p>
                         </span>
                       </label>
                     </li>

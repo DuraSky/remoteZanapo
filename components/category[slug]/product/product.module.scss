@@ -4,7 +4,7 @@
   display: flex;
   flex-wrap: wrap;
   padding: 0 !important;
-  margin-top: 1px;
+  //margin-top: 1px;
   justify-content: flex-start;
 
   .product {
@@ -13,8 +13,8 @@
     flex-direction: column;
     background-color: #ffffff;
     padding: 10px;
-    border-radius: $my-border-radius;
-    border: solid 1px $grey-color;
+    //border-radius: $my-border-radius;
+    border: solid 1px $dark-grey-color;
     transition: transform 0.2s, box-shadow 0.2s;
     //max-width: 295px;
     //max-height: 400px;

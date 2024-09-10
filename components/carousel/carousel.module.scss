@@ -2,6 +2,8 @@
 
 .carouselContainer {
   margin: 0 auto;
+  //box-shadow: $myLightBoxShadow;
+  //background-color: $grey-color;
 }
 
 .carouselWrapper {
@@ -21,6 +23,9 @@
   margin: 0;
   margin-top: 20px;
   font-weight: $carousel-heading-font-weight;
+  // box-shadow: $myLightBoxShadow;
+  // width: 100%;
+  text-align: center;
   //font-weight: bold;
   color: #333;
   //box-shadow: $myLightBoxShadow;
@@ -47,6 +52,7 @@
   display: flex;
   transition: transform 0.5s ease-in-out;
   margin: 10px 0;
+  // box-shadow: $myLightBoxShadow;
 }
 
 .carouselItem {
@@ -56,6 +62,15 @@
   align-items: center;
   //padding: 10px;
   box-sizing: border-box;
+
+  @media (min-width: 477px) {
+    border-right: 1px solid $darker-grey-color;
+    border-radius: none;
+
+    &.lastVisible {
+      border: none;
+    }
+  }
 }
 
 .product {
@@ -66,7 +81,7 @@
   align-items: center;
   //background: #fff;
   //border: 1px solid $dark-grey-color;
-  border-radius: $my-border-radius;
+  //border-radius: $my-border-radius;
   padding: 20px;
   //box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   //text-align: center;
@@ -98,8 +113,12 @@
   &:hover {
     //border: 1px solid $orange-color;
     transform: translateY(-5px);
-    box-shadow: $myMenuBoxShadow;
+    //box-shadow: $myMenuBoxShadow;
     //box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+
+    h3 {
+      color: $orange-color;
+    }
   }
 
   img {

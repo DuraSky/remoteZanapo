@@ -3,6 +3,9 @@
 .sortBar {
   background-color: $grey-color;
   padding: 10px 5px;
+  //border-top-left-radius: $my-border-radius;
+  border-top-right-radius: $my-border-radius;
+  //box-shadow: $myMediumBoxShadow;
 
   label {
     display: flex;

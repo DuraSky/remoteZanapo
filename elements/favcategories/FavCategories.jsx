@@ -13,8 +13,8 @@ export const FavCategories = () => {
           <div className={styles.categoryHeader}>
             <Image
               src={"https://www.zanapo.cz/files/upload/sachy-ikona.svg"}
-              width={"100"}
-              height={"100"}
+              width={"80"}
+              height={"80"}
             />
             <h3>Šachy</h3>
           </div>
@@ -41,8 +41,8 @@ export const FavCategories = () => {
           <div className={styles.categoryHeader}>
             <Image
               src={"https://www.zanapo.cz/files/upload/sipky-ikona.svg"}
-              width={"100"}
-              height={"100"}
+              width={"80"}
+              height={"80"}
             />
             <h3>Šipky</h3>
           </div>
@@ -68,8 +68,8 @@ export const FavCategories = () => {
           <div className={styles.categoryHeader}>
             <Image
               src={"https://www.zanapo.cz/files/upload/puzzle-ikona.svg"}
-              width={"100"}
-              height={"100"}
+              width={"80"}
+              height={"80"}
             />
             <h3>Puzzle</h3>
           </div>
@@ -95,8 +95,8 @@ export const FavCategories = () => {
           <div className={styles.categoryHeader}>
             <Image
               src={"https://www.zanapo.cz/files/upload/vanoce-ikona.svg"}
-              width={"100"}
-              height={"100"}
+              width={"80"}
+              height={"80"}
             />
             <h3>Vánoce</h3>
           </div>

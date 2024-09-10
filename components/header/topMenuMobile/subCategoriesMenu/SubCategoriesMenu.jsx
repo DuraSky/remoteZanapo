@@ -8,7 +8,7 @@ const SubCategoriesMenu = ({ category, onBack, onClose }) => {
       <ul className={styles.subCategoryList}>
         {category.subcategories.map((sub) => (
           <li key={sub.id} className={styles.subCategoryItem}>
-            <Link href={`/${sub.id}`}>
+            <Link href={`/${sub.url}`}>
               <span onClick={onClose}>{sub.name}</span>
             </Link>
           </li>

@@ -93,7 +93,7 @@ const TopMenuMobile = ({ onClose }) => {
               {topMenu.map((category) => (
                 <li key={category.id}>
                   <div>
-                    <Link href={`/${category.id}`} passHref>
+                    <Link href={`/${category.url}`} passHref>
                       <span onClick={handleClose}>
                         <img
                           src={`https://zanapo.cz/${category.image}`}

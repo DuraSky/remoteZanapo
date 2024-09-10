@@ -49,6 +49,8 @@ export const Carousel = ({ section }) => {
     }
   };
 
+  const lastVisibleIndex = currentIndex + visibleItems - 1;
+
   return (
     <section className={`container-fluid ${styles.carouselContainer}`}>
       <div className={styles.carouselWrapper}>
@@ -72,7 +74,9 @@ export const Carousel = ({ section }) => {
             >
               {section.products.map((product, index) => (
                 <div
-                  className={styles.carouselItem}
+                  className={`${styles.carouselItem} ${
+                    index === lastVisibleIndex ? styles.lastVisible : ""
+                  }`}
                   key={index}
                   style={{ width: `${itemWidth}px` }}
                 >

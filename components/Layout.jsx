@@ -10,6 +10,7 @@ import { DataContext } from "./contexts/DataContext";
 
 import { ElementTest } from "./elementTest/ElementTest";
 import { Footer } from "../elements/footer/Footer";
+import { Benefits } from "../elements/benefits/Benefits";
 
 export const Layout = ({ children }) => {
   const { sections } = useContext(DataContext);
@@ -26,6 +27,7 @@ export const Layout = ({ children }) => {
 
       <BlogPosts />
 
+      <Benefits />
       <Footer />
 
       {/* <ElementTest /> */}

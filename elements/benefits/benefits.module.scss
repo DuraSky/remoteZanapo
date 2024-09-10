@@ -1,0 +1,54 @@
+@import "./styles/variables";
+
+.benefitsWrapper {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .benefit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+
+    div {
+      svg {
+        color: $gold-color;
+        width: 50px;
+      }
+    }
+
+    .benefitText {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-weight: 300;
+      text-align: center;
+
+      .subText {
+        font-size: 14px;
+        font-weight: 200;
+      }
+    }
+
+    @media (min-width: 850px) {
+      border-right: solid 1px $darker-grey-color;
+      flex: 1;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    @media (max-width: 849px) {
+      border-right: none;
+
+      padding: 10px 0;
+    }
+  }
+
+  @media (min-width: 590px) {
+    justify-content: space-around;
+  }
+}

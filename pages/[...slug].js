@@ -6,6 +6,7 @@ import { TopSection } from "../components/category[slug]/TopSection";
 import { ProductListing } from "../components/category[slug]/ProductListing";
 import styles from "/styles/slug.module.scss";
 import { Footer } from "../elements/footer/Footer";
+import { Benefits } from "../elements/benefits/Benefits";
 
 const CategoryPage = ({ data }) => {
   const { setTopMenu } = useContext(DataContext);
@@ -120,7 +121,7 @@ const CategoryPage = ({ data }) => {
       console.log("New data", data);
 
       setFilteredProducts(data.products);
-      // setCurrentPage(1);
+      setCurrentPage(1);
       console.log("DFGSFSF", data.sort_links);
       // setFilteredProducts([]);
       if (data.filters) setFilterCategories(data.filters);
@@ -155,6 +156,8 @@ const CategoryPage = ({ data }) => {
         paginationLinks={paginationLinks}
         onPageChange={handlePageChange}
       />
+
+      <Benefits />
 
       <Footer />
     </>

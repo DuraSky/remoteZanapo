@@ -86,7 +86,7 @@ export const ProductListing = ({
             />
           </div>
         ) : (
-          <div className={`col-md-3 col-lg-2`}>
+          <div className={`col-md-3 col-lg-2 p-0`}>
             <FilterComponent
               filterCategories={filterCategories}
               handleCheckboxChange={handleCheckboxChange}
@@ -95,7 +95,7 @@ export const ProductListing = ({
           </div>
         )}
 
-        <div className="col-12 col-md-9 col-lg-10">
+        <div className="col-12 col-md-9 col-lg-10 ">
           <div className="row">
             <SortBar
               sortLinks={sortLinks}
