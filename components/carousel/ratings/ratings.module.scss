@@ -11,6 +11,11 @@
   color: $rating-color;
   font-size: $carousel-star-size;
   display: flex;
+  align-items: center;
+  svg {
+    fill: $gold-color;
+    width: 18px;
+  }
 }
 
 .star {
@@ -18,9 +23,9 @@
 }
 
 .ratingCount {
-  text-align: center;
+  //text-align: center;
   font-size: $carousel-review-font-size;
   font-weight: $carousel-review-font-weight;
   color: #666;
-  margin-top: 5px;
+  //margin-top: 5px;
 }

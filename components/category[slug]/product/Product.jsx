@@ -26,7 +26,7 @@ export const Product = ({ filteredProducts }) => {
       {filteredProducts.map((product) => (
         <div className={`${styles.product} col-3`} key={product.variant_id}>
           <div className={styles.imageWrapper}>
-            <Link href={"#"}>
+            <Link href={product.url}>
               <Image
                 src={`https://zanapo.cz/${product.image}`}
                 width={350}
@@ -47,7 +47,7 @@ export const Product = ({ filteredProducts }) => {
             </div>
           </div>
           <div className={styles.productInfo}>
-            <Link href={"#"}>
+            <Link href={product.url}>
               <h3 className={styles.productName}>{product.name}</h3>
             </Link>
             <p className={styles.productDescription}>

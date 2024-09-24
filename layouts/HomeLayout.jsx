@@ -1,18 +1,18 @@
 import React, { useContext } from "react";
-import { Header } from "./header/Header";
-import { Banner } from "./banner/Banner";
-import { Carousel } from "./carousel/Carousel";
-import { BlogPosts } from "./blogposts/BlogPosts";
+import { Header } from "../components/header/Header";
+import { Banner } from "../components/banner/Banner";
+import { Carousel } from "../components/carousel/Carousel";
+import { BlogPosts } from "../components/blogposts/BlogPosts";
 
 import { FavCategories } from "../elements/favcategories/FavCategories";
 
-import { DataContext } from "./contexts/DataContext";
+import { DataContext } from "../components/contexts/DataContext";
 
-import { ElementTest } from "./elementTest/ElementTest";
+import { ElementTest } from "../components/elementTest/ElementTest";
 import { Footer } from "../elements/footer/Footer";
 import { Benefits } from "../elements/benefits/Benefits";
 
-export const Layout = ({ children }) => {
+export const HomeLayout = ({ children }) => {
   const { sections } = useContext(DataContext);
 
   return (

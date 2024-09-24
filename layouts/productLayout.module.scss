@@ -1,0 +1,128 @@
+.imageSlideShow {
+  .mainImageWrapper {
+    text-align: center;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+  }
+
+  .dotsWrapper {
+    display: none;
+    text-align: center;
+    margin-top: 10px;
+
+    .dot {
+      height: 10px;
+      width: 10px;
+      background-color: #ddd;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+
+    .activeDot {
+      background-color: #333;
+    }
+  }
+
+  .thumbnailsWrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+
+    .thumbnail {
+      margin-right: 10px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border 0.3s ease;
+
+      &:hover {
+        border-color: #333;
+      }
+    }
+
+    .activeThumbnail {
+      border-color: #333;
+    }
+  }
+
+  /* Overlay */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+    .overlayContent {
+      position: relative;
+      text-align: center;
+      color: white;
+    }
+
+    .closeButton {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 30px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    .prevButton,
+    .nextButton {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+      padding: 20px;
+    }
+
+    .prevButton {
+      left: 20px;
+    }
+
+    .nextButton {
+      right: 20px;
+    }
+
+    img {
+      max-width: 90%;
+      max-height: 80%;
+    }
+  }
+
+  /* Show dots on mobile */
+  @media (max-width: 768px) {
+    .dotsWrapper {
+      display: block;
+    }
+
+    .thumbnailsWrapper {
+      display: none;
+    }
+  }
+
+  /* Show thumbnails on desktop */
+  @media (min-width: 769px) {
+    .dotsWrapper {
+      display: none;
+    }
+
+    .thumbnailsWrapper {
+      display: flex;
+    }
+  }
+}

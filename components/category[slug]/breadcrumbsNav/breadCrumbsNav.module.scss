@@ -9,6 +9,7 @@
 
   .breadcrumbList {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
     align-items: center;
     padding: 0;
@@ -18,6 +19,7 @@
     margin-bottom: 10px;
 
     .breadcrumbItem {
+      margin-top: 5px;
       display: flex;
       //align-items: center;
 
