@@ -5,31 +5,39 @@ import styles from "./imageslideshow.module.scss";
 
 export const ImageSlideShow = ({ images, initialImage }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [currentImage, setCurrentImage] = useState(initialImage || images[0]);
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const isSwipe = useRef(false);
+  const swipeThreshold = 50;
 
-  // Synchronize currentImage with currentIndex
-  useEffect(() => {
-    setCurrentImage(images[currentIndex]);
-  }, [currentIndex, images]);
+  useEffect(() => {}, [currentIndex]);
 
-  // Handle swiping logic
   const handleTouchStart = (e) => {
     touchStartX.current = e.changedTouches[0].screenX;
+    touchEndX.current = touchStartX.current;
+    isSwipe.current = false;
   };
 
   const handleTouchMove = (e) => {
     touchEndX.current = e.changedTouches[0].screenX;
+
+    if (Math.abs(touchStartX.current - touchEndX.current) > swipeThreshold) {
+      isSwipe.current = true;
+    }
   };
 
   const handleTouchEnd = () => {
-    if (touchStartX.current - touchEndX.current > 50) {
-      nextImage();
-    }
-    if (touchEndX.current - touchStartX.current > 50) {
-      prevImage();
+    const touchDelta = touchStartX.current - touchEndX.current;
+
+    if (isSwipe.current) {
+      if (touchDelta > swipeThreshold) {
+        nextImage();
+      } else if (touchDelta < -swipeThreshold) {
+        prevImage();
+      }
+    } else {
+      openOverlay();
     }
   };
 
@@ -61,17 +69,18 @@ export const ImageSlideShow = ({ images, initialImage }) => {
 
   return (
     <>
-      <div
-        className={styles.imageSlideShow}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-      >
+      <div className={styles.imageSlideShow}>
         {/* Main Image */}
-        <div className={styles.mainImageWrapper} onClick={openOverlay}>
+        <div
+          className={styles.mainImageWrapper}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          onClick={openOverlay}
+        >
           <Image
-            src={`https://zanapo.cz/${currentImage.src}`}
-            alt={currentImage.alt}
+            src={`https://zanapo.cz${images[currentIndex].src}`}
+            alt={images[currentIndex].alt}
             width={500}
             height={500}
             objectFit="contain"
@@ -79,7 +88,7 @@ export const ImageSlideShow = ({ images, initialImage }) => {
         </div>
 
         {/* Dots for Mobile */}
-        <div className={` ${styles.dotsWrapper}`}>
+        <div className={styles.dotsWrapper}>
           {images.map((_, index) => (
             <span
               key={index}
@@ -91,7 +100,6 @@ export const ImageSlideShow = ({ images, initialImage }) => {
           ))}
         </div>
 
-        {/* Thumbnails for Desktop */}
         <div className={styles.thumbnailsWrapper}>
           {images.map((image, index) => (
             <div
@@ -102,7 +110,7 @@ export const ImageSlideShow = ({ images, initialImage }) => {
               onClick={() => handleThumbnailClick(index)}
             >
               <Image
-                src={`https://zanapo.cz/${image.src}`}
+                src={`https://zanapo.cz${image.src}`}
                 alt={image.alt}
                 width={80}
                 height={80}
@@ -113,7 +121,6 @@ export const ImageSlideShow = ({ images, initialImage }) => {
         </div>
       </div>
 
-      {/* Use ImageOverlay component for the enlarged view */}
       <ImageOverlay
         images={images}
         currentIndex={currentIndex}

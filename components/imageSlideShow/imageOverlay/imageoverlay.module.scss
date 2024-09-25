@@ -1,90 +1,182 @@
-.overlay {
+@import "./styles/variables";
+
+.overlayWrapper {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
-  padding: 50px; /* Add padding to ensure content doesn't stretch to full size */
-
-  .overlayContent {
-    max-width: 700px;
+  .overlay {
     position: relative;
-    text-align: center;
-    color: white;
+    background: white;
+    width: 85%;
+
+    height: auto;
+    max-height: 90%;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-  }
-
-  .closeButton {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 30px;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-  }
-
-  .prevButton,
-  .nextButton {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    font-size: 40px;
-    color: white;
-    cursor: pointer;
+    flex-direction: column;
     padding: 20px;
-  }
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    overflow-y: auto;
+    box-shadow: $myMenuBoxShadow;
 
-  .prevButton {
-    left: 20px;
-  }
+    @media (min-width: 800px) {
+      width: 70%;
+    }
 
-  .nextButton {
-    right: 20px;
-  }
+    @media (min-width: 1400px) {
+      width: 50%;
+    }
 
-  img {
-    max-width: 80%;
-    max-height: 70%;
-  }
+    .overlayContent {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-  /* Thumbnails in a row */
-  .thumbnailsWrapper {
-    display: flex;
-    flex-wrap: wrap; /* Allow thumbnails to wrap if they overflow */
-    justify-content: center; /* Center the thumbnails */
-    margin-top: 20px;
-    max-width: 100%;
-    overflow-x: auto; /* Scroll horizontally if there are too many thumbnails */
+      img {
+        width: 280px;
+        max-height: 200px;
+      }
+
+      .closeButton {
+        align-self: flex-end;
+        border: none;
+        background-color: transparent;
+        font-size: 22px;
+
+        &:hover {
+          color: $orange-color;
+        }
+      }
+
+      @media (min-width: 360px) {
+        img {
+          width: 320px;
+          max-height: 250px;
+        }
+      }
+
+      @media (min-width: 500px) {
+        img {
+          width: 450px;
+          max-height: 350px;
+        }
+      }
+
+      @media (min-width: 700px) {
+        img {
+          width: 600px;
+          max-height: 500px;
+        }
+      }
+    }
+
+    .thumbnailControls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+
+      .carouselButton {
+        background: none;
+        border: none;
+        font-size: 20px;
+        color: black;
+        cursor: pointer;
+        padding: 1px;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $orange-color;
+        }
+      }
+    }
+
+    .thumbnailsWrapper {
+      display: flex;
+      overflow: hidden;
+      scroll-behavior: smooth;
+      width: 100%;
+      gap: 0;
+    }
 
     .thumbnail {
-      margin: 0 10px; /* Horizontal margin to space thumbnails */
-      cursor: pointer;
+      flex-shrink: 0;
       border: 2px solid transparent;
+      padding: 5px;
       transition: border 0.3s ease;
+      box-sizing: border-box;
 
-      &:hover {
-        border-color: #333;
+      img {
+        max-width: 100%;
+        max-height: 100%;
       }
     }
 
     .activeThumbnail {
-      border-color: #fff;
+      border-color: $gold-color;
+      border-radius: $my-border-radius;
+      box-shadow: $myHeavyBoxShadow;
     }
 
-    img {
-      max-width: 80px; /* Thumbnail size */
-      max-height: 80px;
+    .thumbnailsWrapper {
+      width: 200px;
+    }
+
+    .thumbnail {
+      width: 100px;
+      height: 80px;
+    }
+
+    @media (min-width: 360px) {
+      .thumbnailsWrapper {
+        width: 280px;
+      }
+
+      .thumbnail {
+        width: 100px;
+        height: 80px;
+      }
+    }
+
+    @media (min-width: 500px) {
+      .thumbnailsWrapper {
+        width: 390px;
+      }
+
+      .thumbnail {
+        width: 110px;
+        height: 80px;
+      }
+    }
+
+    @media (min-width: 700px) {
+      .thumbnailsWrapper {
+        width: 550px;
+      }
+
+      .thumbnail {
+        width: 110px;
+        height: 100px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .thumbnailsWrapper {
+        width: 570px;
+      }
+
+      .thumbnail {
+        width: 110px;
+        height: 100px;
+      }
     }
   }
 }

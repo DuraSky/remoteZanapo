@@ -8,7 +8,7 @@ const nextConfig = {
     includePaths: [path.join(process.cwd(), "styles")],
   },
   images: {
-    domains: ["test.zanapo.cz", "zanapo.cz"], // Add your allowed domain here
+    domains: ["test.zanapo.cz", "zanapo.cz", "zanapo-test.webmexplus.cz"],
   },
 };
 

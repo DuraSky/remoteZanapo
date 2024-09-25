@@ -30,3 +30,5 @@ export const SortBar = forwardRef(
     );
   }
 );
+
+SortBar.displayName = "SortBar";
