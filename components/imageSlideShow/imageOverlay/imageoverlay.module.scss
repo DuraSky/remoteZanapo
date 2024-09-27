@@ -1,7 +1,7 @@
 @import "./styles/variables";
 
 .overlayWrapper {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
   height: 100%;
   position: fixed;
@@ -27,6 +27,18 @@
     overflow-y: auto;
     box-shadow: $myMenuBoxShadow;
 
+    .closeButton {
+      align-self: flex-end;
+      flex-grow: 1;
+      border: none;
+      background-color: transparent;
+      font-size: 22px;
+
+      &:hover {
+        color: $orange-color;
+      }
+    }
+
     @media (min-width: 800px) {
       width: 70%;
     }
@@ -43,17 +55,7 @@
       img {
         width: 280px;
         max-height: 200px;
-      }
-
-      .closeButton {
-        align-self: flex-end;
-        border: none;
-        background-color: transparent;
-        font-size: 22px;
-
-        &:hover {
-          color: $orange-color;
-        }
+        object-fit: contain;
       }
 
       @media (min-width: 360px) {
@@ -74,6 +76,13 @@
         img {
           width: 600px;
           max-height: 500px;
+        }
+      }
+
+      @media (min-width: 1450px) {
+        img {
+          width: 800px;
+          max-height: 600px;
         }
       }
     }

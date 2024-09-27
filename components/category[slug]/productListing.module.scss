@@ -11,4 +11,16 @@
     margin: 10px 0;
     //background-color: $grey-color;
   }
+
+  .categoryName {
+    font-size: 30px;
+    margin-top: 20px;
+  }
+
+  .categoryText {
+    font-weight: 300;
+    strong {
+      color: $gold-color;
+    }
+  }
 }

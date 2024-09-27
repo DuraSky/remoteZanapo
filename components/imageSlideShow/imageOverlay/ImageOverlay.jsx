@@ -84,16 +84,15 @@ export const ImageOverlay = ({
       {isOverlayOpen && (
         <div className={styles.overlayWrapper} onClick={handleOverlayClick}>
           <div className={styles.overlay}>
+            <button className={styles.closeButton} onClick={closeOverlay}>
+              &times;
+            </button>
             <div
               className={styles.overlayContent}
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              <button className={styles.closeButton} onClick={closeOverlay}>
-                &times;
-              </button>
-
               <Image
                 src={`https://zanapo.cz/${currentImage.src}`}
                 alt={currentImage.alt}

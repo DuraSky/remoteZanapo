@@ -1,0 +1,14 @@
+@import "./styles/variables";
+
+.productHeader {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  .icons {
+    display: flex;
+    gap: 5px;
+    size: 16px;
+    color: $red-icons;
+  }
+}

@@ -1,0 +1,35 @@
+@import "./styles/variables";
+
+.ratingContainer {
+  display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // flex-direction: column;
+}
+
+.stars {
+  color: $rating-color;
+  font-size: $carousel-star-size;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  svg {
+    fill: $gold-color;
+    width: 18px;
+  }
+}
+
+.star {
+  margin-right: 1px;
+}
+
+.ratingCount {
+  //text-align: center;
+  //display: flex;
+  font-size: $carousel-review-font-size;
+  font-weight: $carousel-review-font-weight;
+  color: #666;
+  opacity: 0.6;
+
+  //margin-top: 5px;
+}

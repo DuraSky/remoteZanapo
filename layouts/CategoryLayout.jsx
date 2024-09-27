@@ -122,14 +122,14 @@ export const CategoryLayout = ({ data }) => {
   return (
     <>
       <Header />
-      <TopSection
+      {/* <TopSection
         category={data.category}
         showLongDescription={showLongDescription}
         apiElements={apiElements}
         bestProducts={bestProducts}
         toggleDescription={() => setShowLongDescription(!showLongDescription)}
         breadcrumbsLinks={breadcrumbsLinks}
-      />
+      /> */}
 
       <ProductListing
         filterCategories={filterCategories}
@@ -141,6 +141,8 @@ export const CategoryLayout = ({ data }) => {
         productsPerPage={productsPerPage}
         paginationLinks={paginationLinks}
         onPageChange={handlePageChange}
+        breadcrumbsLinks={breadcrumbsLinks}
+        category={data.category}
       />
 
       <Benefits />

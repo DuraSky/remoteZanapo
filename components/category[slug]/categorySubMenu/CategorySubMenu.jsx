@@ -7,11 +7,11 @@ import styles from "./categorySubMenu.module.scss";
 
 export const CategorySubMenu = ({ category }) => {
   return (
-    <div className="col-12">
+    <>
       {category.subcategories && category.subcategories.length > 0 && (
-        <div className="row">
+        <div className={` ${styles.allItems}`}>
           {category.subcategories.map((subcategory) => (
-            <div key={subcategory.id} className="col-6 col-sm-3  col-lg-2 mb-3">
+            <div key={subcategory.id}>
               <Link href={subcategory.url}>
                 <div className={`${styles.subcategoryCard}`}>
                   <Image
@@ -28,6 +28,6 @@ export const CategorySubMenu = ({ category }) => {
           ))}
         </div>
       )}
-    </div>
+    </>
   );
 };

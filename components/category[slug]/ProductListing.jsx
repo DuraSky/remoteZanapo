@@ -3,21 +3,23 @@ import { FilterComponent } from "./filterComponent/FilterComponent";
 import { Product } from "./product/Product";
 import { SortBar } from "./sortBar/SortBar";
 import { Pagination } from "../pagination/Pagination";
-import styles from "./productListing.module.scss";
-
+import { CategorySubMenu } from "./categorySubMenu/CategorySubMenu";
 import { MobileFilterComponent } from "./mobileFilterComponent/MobileFilterComponent";
+import { BreadCrumbsNav } from "./breadcrumbsNav/BreadCrumbsNav";
+
+import styles from "./productListing.module.scss";
 
 export const ProductListing = ({
   filterCategories,
   filteredProducts,
   handleCheckboxChange,
-  // productCount,
   priceFilter,
   sortLinks,
   currentPage,
-  productsPerPage,
   paginationLinks,
   onPageChange,
+  breadcrumbsLinks,
+  category,
 }) => {
   const sortBarRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
@@ -86,7 +88,7 @@ export const ProductListing = ({
             />
           </div>
         ) : (
-          <div className={`col-md-3 col-lg-2 p-0`}>
+          <div className={`col-md-3 col-lg-3 p-0`}>
             <FilterComponent
               filterCategories={filterCategories}
               handleCheckboxChange={handleCheckboxChange}
@@ -95,7 +97,24 @@ export const ProductListing = ({
           </div>
         )}
 
-        <div className="col-12 col-md-9 col-lg-10 ">
+        <div className={`col-12 col-md-9 col-lg-9 ${styles.topContent}`}>
+          <div className="col-12">
+            <BreadCrumbsNav breadcrumbsLinks={breadcrumbsLinks} />
+          </div>
+          <h2 className={styles.categoryName}>{category.name}</h2>
+          <div
+            className={styles.categoryText}
+            dangerouslySetInnerHTML={{ __html: category.description_short }}
+          ></div>
+
+          <div className="row my-2">
+            <img src="./assets/bannerSachy.png" alt="" />
+          </div>
+
+          <div className="col-12">
+            <CategorySubMenu category={category} />
+          </div>
+
           <div className="row">
             <SortBar
               sortLinks={sortLinks}

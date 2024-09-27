@@ -5,83 +5,140 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;
+
   .mainImageWrapper {
-    //text-align: center;
-    margin-bottom: 15px;
+    //margin-bottom: 15px;
     img {
-      max-width: 300px;
-      max-height: 250px;
+      max-width: 100%;
+      height: auto;
+      cursor: pointer;
     }
   }
 
   /* Mobile Dots */
   .dotsWrapper {
-    display: none;
-    //text-align: center;
-    //margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    flex-wrap: wrap;
 
     .dot {
       height: 10px;
       width: 10px;
       background-color: #ddd;
       border-radius: 50%;
-      display: inline-block;
       margin: 2px 5px;
       cursor: pointer;
     }
 
     .activeDot {
-      background-color: $orange-color;
+      background-color: #ff6347;
     }
   }
 
-  /* Thumbnails for Desktop */
-  .thumbnailsWrapper {
-    display: flex;
-    justify-content: center;
-    //margin-top: 15px;
-    max-width: 500px;
-    flex-wrap: wrap;
+  /* Thumbnails Carousel Controls */
+  .thumbnailControls {
+    display: none;
+    @media (min-width: 769px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      //margin-top: 10px;
 
-    .thumbnail {
-      margin-right: 10px;
-      cursor: pointer;
-      border: 2px solid transparent;
-      transition: border 0.3s ease;
+      .carouselButton {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        transition: color 0.3s ease;
 
-      &:hover {
-        border-color: #333;
+        &:hover {
+          color: #ff6347;
+        }
       }
     }
+  }
 
-    .activeThumbnail {
-      border-color: #333;
+  .thumbnailsWrapper {
+    display: flex;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    gap: 10px;
+    width: 100%;
+
+    //justify-content: flex-start;
+  }
+
+  .thumbnail {
+    flex-shrink: 0;
+    cursor: pointer;
+    border: 2px solid transparent;
+    padding: 5px;
+    transition: border 0.3s ease;
+    box-sizing: border-box;
+
+    img {
+      width: 100%;
+      height: 100%;
+      //object-fit: contain;
     }
   }
 
-  /* Show dots on mobile */
-  @media (max-width: 768px) {
-    .dotsWrapper {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      // flex-grow: 1;
-    }
+  .activeThumbnail {
+    border-color: $gold-color;
+    border-radius: $my-border-radius;
+    box-shadow: $myHeavyBoxShadow;
+    //overflow: hidden;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+  }
 
+  /* Responsive Design */
+  @media (min-width: 600px) {
     .thumbnailsWrapper {
-      display: none;
+      width: 600px;
+    }
+
+    .thumbnail {
+      width: 100px;
+      height: 80px;
     }
   }
 
-  /* Show thumbnails on desktop */
+  @media (min-width: 900px) {
+    .thumbnailsWrapper {
+      width: 700px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .thumbnailsWrapper {
+      width: 400px;
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .thumbnailsWrapper {
+      width: 500px;
+    }
+  }
+
+  @media (min-width: 1250px) {
+    .thumbnailsWrapper {
+      width: 600px;
+    }
+  }
+
+  @media (min-width: 1450px) {
+    .thumbnailsWrapper {
+      width: 700px;
+    }
+  }
+
   @media (min-width: 769px) {
     .dotsWrapper {
       display: none;
-    }
-
-    .thumbnailsWrapper {
-      display: flex;
     }
   }
 }

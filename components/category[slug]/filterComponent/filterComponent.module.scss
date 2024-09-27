@@ -3,11 +3,15 @@
 .filter {
   font-size: 14px;
   background-color: $grey-color;
+  border: 1px solid #ced4da;
   //border-radius: $my-border-radius;
-  border-top-left-radius: $my-border-radius;
-  border-bottom-left-radius: $my-border-radius;
+  //border-top-left-radius: $my-border-radius;
+  //border-bottom-left-radius: $my-border-radius;
+  padding: 10px;
   box-shadow: $myMediumBoxShadow;
   padding-bottom: 5px;
+  width: 90%;
+  //width: 250px;
 
   //border: solid 1px $grey-color;
 
@@ -60,11 +64,14 @@
 
     .filterList {
       margin: 0;
-      padding: 10px 0 0 0;
+      padding: 5px 0 0 0;
       list-style: none;
 
       .filterItem {
-        padding: 2px 0;
+        //padding: 2px 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 24px;
 
         label {
           display: flex;

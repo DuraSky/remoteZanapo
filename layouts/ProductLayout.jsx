@@ -11,12 +11,14 @@ import { BreadCrumbsNav } from "../components/category[slug]/breadcrumbsNav/Brea
 import { Label } from "../components/carousel/labels/Label";
 import { ProductName } from "../components/productDetail/productName/ProductName";
 import { ImageSlideShow } from "../components/imageSlideShow/ImageSlideShow";
+import { BuySection } from "../components/productDetail/BuySection/BuySection";
 
 export const ProductLayout = ({ data }) => {
   const { setTopMenu } = useContext(DataContext);
 
   const [breadcrumbsLinks, setBreadcrumbsLinks] = useState([]);
   const [productInfo, setProductInfo] = useState({});
+  const [isDesktopView, setIsDesktopView] = useState(true);
 
   useEffect(() => {
     if (data) {
@@ -31,6 +33,19 @@ export const ProductLayout = ({ data }) => {
     }
   }, [data, setTopMenu]);
 
+  const handleResize = () => {
+    const mediaQuery = window.matchMedia("(min-width: 992px)");
+    setIsDesktopView(mediaQuery.matches);
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   console.log("this the product", productInfo);
 
   return (
@@ -41,52 +56,70 @@ export const ProductLayout = ({ data }) => {
           <BreadCrumbsNav breadcrumbsLinks={breadcrumbsLinks} />
         </div>
 
-        <div className="row">
-          <ProductName
-            name={productInfo.name}
-            ratingAvg={productInfo.rating_average}
-            ratingCount={productInfo.rating_count}
-          />
-          <div className="col-sm-12 col-lg-6">
-            <div className={styles.imagePreviewWrapper}>
-              {/* <div className={styles.labelsContainer}>
-                {productInfo.labels &&
-                  productInfo.labels.map((label, labelIndex) => (
-                    <Label
-                      key={labelIndex}
-                      title={label.title}
-                      color={label.color}
-                    />
-                  ))}
-              </div> */}
+        {isDesktopView ? (
+          <div className="row">
+            <div className="col-sm-12 col-lg-6">
+              <div className={styles.imagePreviewWrapper}>
+                {productInfo.images && (
+                  <ImageSlideShow
+                    images={productInfo.images}
+                    initialImage={{
+                      src: productInfo.image,
+                      alt: productInfo.name,
+                    }}
+                  />
+                )}
+              </div>
+            </div>
 
-              {productInfo.images && (
-                <ImageSlideShow
-                  images={productInfo.images}
-                  initialImage={{
-                    src: productInfo.image,
-                    alt: productInfo.name,
-                  }}
-                />
-              )}
+            <div className="col-sm-12 col-lg-6">
+              <ProductName
+                name={productInfo.name}
+                ratingAvg={productInfo.rating_average}
+                ratingCount={productInfo.rating_count}
+              />
+
+              <p>{productInfo.description_short}</p>
+
+              <BuySection
+                availability_text={productInfo.availability_text}
+                availability_color={productInfo.availability_color}
+                delivery_date={productInfo.delivery_date}
+                price_f={productInfo.price_f}
+              />
             </div>
           </div>
+        ) : (
+          <div className="row">
+            <ProductName
+              name={productInfo.name}
+              ratingAvg={productInfo.rating_average}
+              ratingCount={productInfo.rating_count}
+            />
 
-          <div className="col-sm-12 col-lg-6">
-            <p style={{ color: productInfo.availability_color }}>
-              {productInfo.availability_text}
-            </p>
-            <p style={{ color: productInfo.availability_color }}>
-              {productInfo.delivery_date}
-            </p>
+            <div className="col-sm-12">
+              <div className={styles.imagePreviewWrapper}>
+                {productInfo.images && (
+                  <ImageSlideShow
+                    images={productInfo.images}
+                    initialImage={{
+                      src: productInfo.image,
+                      alt: productInfo.name,
+                    }}
+                  />
+                )}
+              </div>
 
-            <p>{productInfo.price_f}</p>
-
-            <button>Koupit</button>
-
-            <p>{productInfo.description}</p>
+              <BuySection
+                availability_text={productInfo.availability_text}
+                availability_color={productInfo.availability_color}
+                delivery_date={productInfo.delivery_date}
+                price_f={productInfo.price_f}
+              />
+              <p>{productInfo.description_short}</p>
+            </div>
           </div>
-        </div>
+        )}
       </section>
 
       <Benefits />
