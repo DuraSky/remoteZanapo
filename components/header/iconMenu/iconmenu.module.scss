@@ -5,6 +5,12 @@
   padding-bottom: $header-icon-bottom-padding;
   font-size: 25px;
   cursor: pointer;
+  //margin-left: 30px;
+  //width: 100%;
+
+  //display: flex;
+  //justify-content: flex-end;
+
   //position: relative;
 
   .icon {
@@ -38,7 +44,7 @@
       height: 18px;
     }
     #counterOne {
-      background-color: $gold-color;
+      background-color: $orange-color;
     }
     #counterTwo {
       background-color: $dark-red-color;
@@ -60,6 +66,21 @@
     fill: black;
     &:hover {
       background-color: white;
+    }
+  }
+
+  #first {
+    img {
+      border-radius: 50%;
+      width: 50px;
+    }
+
+    .supportText {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      font-size: 14px;
+      width: 100%;
     }
   }
 

@@ -5,8 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { LoadingSpinner } from "../../LoadingSpinner/LoadingSpinner";
 import { ProductHeader } from "./productHeader/ProductHeader";
-import { BuyButton } from "./buyButton/BuyButton";
-import { ProductPrice } from "./productPrice/ProductPrice";
+import { BuySection } from "./buySection/BuySection";
+import { ProductProperties } from "./productProperties/ProductProperties";
 
 export const Product = ({ filteredProducts }) => {
   const [loading, setLoading] = useState(true);
@@ -38,6 +38,19 @@ export const Product = ({ filteredProducts }) => {
               />
             </Link>
 
+            <div className={styles.imageMiniature}>
+              <Image
+                src={
+                  product.images && product.images[1] && product.images[1].src
+                    ? `https://zanapo.cz/${product.images[1].src}`
+                    : `https://zanapo.cz/${product.image}`
+                }
+                width={220}
+                height={220}
+                alt={`${product.name} miniatura`}
+              />
+            </div>
+
             <div className={styles.labelsContainer}>
               {product.labels &&
                 product.labels.map((label, labelIndex) => (
@@ -59,20 +72,25 @@ export const Product = ({ filteredProducts }) => {
             <Link href={product.url}>
               <h3 className={styles.productName}>{product.name}</h3>
             </Link>
+            <ProductProperties />
+
             <p className={styles.productDescription}>
               {truncateText(product.description_short, 130)}
             </p>
 
             <div className={styles.productFooter}>
-              <ProductPrice price={product.price_f} />
-              <BuyButton />
-              <div
+              <BuySection
+                availability_color={product.availability_color}
+                availability_text={product.availability_text}
+                price={product.price_f}
+              />
+              {/* <div
                 className={styles.productAvailability}
                 style={{ color: product.availability_color }}
               >
                 <p>{product.availability_text}</p>
                 <p className={styles.deliveryDate}>{product.delivery_date}</p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

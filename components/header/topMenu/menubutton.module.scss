@@ -5,18 +5,22 @@
   display: none;
   position: relative;
   cursor: pointer;
+  // max-width: 240px;
 
   @media (min-width: 992px) {
     display: flex;
-    background: $grey-color;
+    background-color: $orange-color;
     //font-weight: 700;
     outline: 0;
     border: 2px solid $grey-color;
     align-items: center;
     padding: 8px 20px;
-    border-radius: $my-border-radius;
+    //border-radius: $my-border-radius;
     color: $black-color;
     max-height: 50px;
+    color: white;
+
+    //width: 100%;
 
     .arrow {
       position: absolute;
@@ -51,6 +55,7 @@
   z-index: 9999 !important;
   top: 100%;
   left: 0;
+  color: black;
   background-color: $white-color;
   //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   box-shadow: $myMenuBoxShadow;

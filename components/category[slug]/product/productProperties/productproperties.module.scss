@@ -1,0 +1,18 @@
+@import "../styles/variables";
+
+.propertiesWrapper {
+  display: flex;
+
+  .property {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.9rem;
+
+    .right {
+      color: $darker-grey-color;
+      font-weight: 500;
+    }
+  }
+}

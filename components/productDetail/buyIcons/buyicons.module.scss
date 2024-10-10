@@ -1,0 +1,19 @@
+@import "./styles/variables";
+
+.buyIcons {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  margin: 0 20px;
+
+  .icon {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: $darker-grey-color;
+    &:hover {
+      color: $black-color;
+      cursor: pointer;
+    }
+  }
+}

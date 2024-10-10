@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { CategoryLayout } from "../layouts/CategoryLayout";
 import { ProductLayout } from "../layouts/ProductLayout";
+import { ErrorLayout } from "../layouts/ErrorLayout";
 
 const Page = () => {
   const router = useRouter();
@@ -42,7 +43,7 @@ const Page = () => {
     fetchData();
   }, [slug, router.query]);
 
-  if (error) return <div>{error}</div>;
+  if (error) return <ErrorLayout />;
 
   if (data) {
     switch (data.page_type) {

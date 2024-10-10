@@ -7,6 +7,8 @@ import { Footer } from "../elements/footer/Footer";
 import { Benefits } from "../elements/benefits/Benefits";
 import { Header } from "../components/header/Header";
 
+import styles from "./categoryLayout.module.scss";
+
 export const CategoryLayout = ({ data }) => {
   const { setTopMenu } = useContext(DataContext);
   const router = useRouter();
@@ -131,6 +133,7 @@ export const CategoryLayout = ({ data }) => {
         breadcrumbsLinks={breadcrumbsLinks}
       /> */}
 
+      {/* <div className={styles.wrapper}> */}
       <ProductListing
         filterCategories={filterCategories}
         filteredProducts={filteredProducts}
@@ -144,8 +147,8 @@ export const CategoryLayout = ({ data }) => {
         breadcrumbsLinks={breadcrumbsLinks}
         category={data.category}
       />
-
       <Benefits />
+      {/* </div> */}
 
       <Footer />
     </>

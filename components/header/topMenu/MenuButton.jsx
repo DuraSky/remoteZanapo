@@ -53,6 +53,8 @@ export const MenuButton = () => {
         width="28"
         height="28"
         viewBox="0 0 24 24"
+        //stroke="white"
+        fill="white"
       >
         <path d="M3 18v-2h18v2zm0-5v-2h18v2zm0-5V6h18v2z"></path>
       </svg>

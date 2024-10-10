@@ -12,6 +12,8 @@ import { Label } from "../components/carousel/labels/Label";
 import { ProductName } from "../components/productDetail/productName/ProductName";
 import { ImageSlideShow } from "../components/imageSlideShow/ImageSlideShow";
 import { BuySection } from "../components/productDetail/BuySection/BuySection";
+import { BuyIcons } from "../components/productDetail/buyIcons/BuyIcons";
+import { ProductRating } from "../components/productDetail/productRating/ProductRating";
 
 export const ProductLayout = ({ data }) => {
   const { setTopMenu } = useContext(DataContext);
@@ -79,7 +81,9 @@ export const ProductLayout = ({ data }) => {
                 ratingCount={productInfo.rating_count}
               />
 
-              <p>{productInfo.description_short}</p>
+              <p className={styles.description}>
+                {productInfo.description_short}
+              </p>
 
               <BuySection
                 availability_text={productInfo.availability_text}
@@ -87,6 +91,7 @@ export const ProductLayout = ({ data }) => {
                 delivery_date={productInfo.delivery_date}
                 price_f={productInfo.price_f}
               />
+              <BuyIcons />
             </div>
           </div>
         ) : (
@@ -116,12 +121,16 @@ export const ProductLayout = ({ data }) => {
                 delivery_date={productInfo.delivery_date}
                 price_f={productInfo.price_f}
               />
-              <p>{productInfo.description_short}</p>
+              <p className={styles.description}>
+                {productInfo.description_short}
+              </p>
             </div>
           </div>
         )}
       </section>
-
+      <section className="container-fluid">
+        <ProductRating />
+      </section>
       <Benefits />
       <Footer />
     </>

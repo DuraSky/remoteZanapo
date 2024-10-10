@@ -1,11 +1,12 @@
 @import "./styles/variables";
 
 .headerStyle {
-  padding-bottom: $header-bottom-padding;
+  //padding-bottom: $header-bottom-padding;
 
   .logo {
     min-width: 200px;
     max-width: 250px;
+    filter: hue-rotate(311deg) brightness(0.7);
   }
   .infoMenu {
     display: none;
@@ -24,6 +25,6 @@
     position: relative;
   }
   @media (min-width: 1200px) {
-    box-shadow: $myLightBoxShadow;
+    //box-shadow: $myLightBoxShadow;
   }
 }

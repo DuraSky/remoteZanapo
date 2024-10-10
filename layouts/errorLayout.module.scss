@@ -1,0 +1,16 @@
+@import "./styles/variables";
+
+.errorBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-size: 22px;
+  font-weight: 200;
+
+  span {
+    color: $orange-color;
+    font-weight: 300;
+  }
+}

@@ -39,8 +39,9 @@
 
 .allItems {
   display: flex;
+  flex-grow: 1;
   flex-wrap: wrap;
-  gap: 11px;
+  gap: 5px;
   width: 100%;
   margin-bottom: 10px;
   padding-bottom: 15px;
@@ -49,12 +50,12 @@
   .subcategoryCard {
     padding: 5px;
     background-color: $white-color;
-    border-radius: $my-border-radius;
+    //border-radius: $my-border-radius;
     box-shadow: $myMediumBoxShadow;
     text-align: center;
     //padding: 2px;
-    min-width: 140px;
-    max-width: 140px;
+    min-width: 130px;
+    max-width: 130px;
     min-height: 60px;
     max-height: 60px;
 

@@ -1,0 +1,40 @@
+@import "../styles/variables";
+.buySectionWrapper {
+  background-color: $buysection-color;
+  display: flex;
+  //flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 10px;
+
+  .priceAndButton {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    .price {
+      font-weight: 1rem;
+      font-weight: bold;
+    }
+    .buyButton {
+      transition: all 0.3s ease;
+      //border-radius: $my-border-radius;
+      color: #fff;
+      font-weight: 600;
+      text-transform: none;
+      padding: 8px 24px !important;
+      background-color: $orange-color;
+      border: none;
+      .buttonText {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      &:hover {
+        box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.25);
+        background: #ba3707;
+      }
+    }
+  }
+}

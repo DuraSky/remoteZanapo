@@ -66,7 +66,9 @@ export const RatingsStyle2 = ({ ratingAverage = 0, ratingCount = 0 }) => {
     <div className={styles.ratingContainer}>
       <div className={styles.stars}>
         <div>{renderStars()}</div>
-        <div className={styles.ratingCount}>({ratingCount}x)</div>
+        <div className={styles.ratingCount}>
+          Hodnotilo <span>{ratingCount} zákazníků</span>
+        </div>
       </div>
     </div>
   );

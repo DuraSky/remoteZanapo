@@ -75,33 +75,34 @@ export const ProductListing = ({
 
   return (
     <section className="container-fluid" id={styles.filterAndProducts}>
-      <div className="row">
-        {isMobile ? (
-          <div
-            className={`${styles.mobileButton} d-flex justify-content-center`}
-          >
-            <MobileFilterComponent
-              filterCategories={filterCategories}
-              handleCheckboxChange={handleCheckboxChange}
-              //productCount={productCount}
-              priceFilter={priceFilter}
-            />
-          </div>
-        ) : (
-          <div className={`col-md-3 col-lg-3 p-0`}>
-            <FilterComponent
-              filterCategories={filterCategories}
-              handleCheckboxChange={handleCheckboxChange}
-              priceFilter={priceFilter}
-            />
-          </div>
-        )}
+      {/* <div className="row"> */}
+      {/* <div> */}
+      {isMobile ? (
+        <div className={`${styles.mobileButton} d-flex justify-content-center`}>
+          <MobileFilterComponent
+            filterCategories={filterCategories}
+            handleCheckboxChange={handleCheckboxChange}
+            //productCount={productCount}
+            priceFilter={priceFilter}
+          />
+        </div>
+      ) : (
+        // <div className={`col-md-3 col-lg-1`}>
+        <div>
+          <FilterComponent
+            filterCategories={filterCategories}
+            handleCheckboxChange={handleCheckboxChange}
+            priceFilter={priceFilter}
+          />
+        </div>
+      )}
 
-        <div className={`col-12 col-md-9 col-lg-9 ${styles.topContent}`}>
-          <div className="col-12">
-            <BreadCrumbsNav breadcrumbsLinks={breadcrumbsLinks} />
-          </div>
-          <h2 className={styles.categoryName}>{category.name}</h2>
+      {/* <div className={`col-12 col-md-9 col-lg-10 ${styles.topContent} mx-4`}> */}
+      <div className={styles.topContent}>
+        <div className="col-12">
+          <BreadCrumbsNav breadcrumbsLinks={breadcrumbsLinks} />
+        </div>
+        {/* <h2 className={styles.categoryName}>{category.name}</h2>
           <div
             className={styles.categoryText}
             dangerouslySetInnerHTML={{ __html: category.description_short }}
@@ -109,33 +110,33 @@ export const ProductListing = ({
 
           <div className="row my-2">
             <img src="./assets/bannerSachy.png" alt="" />
-          </div>
+          </div> */}
 
-          <div className="col-12">
-            <CategorySubMenu category={category} />
-          </div>
+        <div className="row">
+          <CategorySubMenu category={category} />
+        </div>
 
-          <div className="row">
-            <SortBar
-              sortLinks={sortLinks}
-              handleCheckboxChange={handleCheckboxChange}
-              ref={sortBarRef}
-            />
-          </div>
-          <div className="row">
-            <Product filteredProducts={filteredProducts} />
-          </div>
-          <div className="row">
-            <Pagination
-              currentPage={currentPage}
-              paginationLinks={paginationLinks}
-              onPageChange={handlePageChange}
-              handleScrollUp={handleScrollUp}
-              showGoUpButton={showGoUpButton}
-            />
-          </div>
+        <div className="row">
+          <SortBar
+            sortLinks={sortLinks}
+            handleCheckboxChange={handleCheckboxChange}
+            ref={sortBarRef}
+          />
+        </div>
+        <div className="row">
+          <Product filteredProducts={filteredProducts} />
+        </div>
+        <div className="row">
+          <Pagination
+            currentPage={currentPage}
+            paginationLinks={paginationLinks}
+            onPageChange={handlePageChange}
+            handleScrollUp={handleScrollUp}
+            showGoUpButton={showGoUpButton}
+          />
         </div>
       </div>
+      {/* </div> */}
     </section>
   );
 };

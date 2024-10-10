@@ -19,7 +19,7 @@ export const Header = () => {
       <div className="">
         <TopBar />
         <div className="row">
-          <div className="col-3 col-md-6 col-lg-3 order-2 order-md-1 d-none d-md-flex">
+          <div className="col-3 col-md-6 col-lg-3 order-2 order-md-1 d-none d-md-flex ">
             <Link href="/" passHref>
               <img
                 src={currentTranslations.logo}
@@ -34,11 +34,11 @@ export const Header = () => {
             <InfoMenu />
           </div>
         </div>
-        <div className={`row align-items-end px-0 ${styles.mobilePosition} `}>
-          <div className="col-12 col-6 col-md-6 col-lg-3 order-1 order-md-3">
+        <div className={`row align-items-end px-0 ${styles.mobilePosition}`}>
+          <div className="col-12 col-md-6 col-lg-4 order-1 order-md-3">
             <IconMenu />
           </div>
-          <div className="col-12 col-md-6 col-lg-6 order-2">
+          <div className="col-12 col-md-6 col-lg-5 order-2">
             <SearchBar />
           </div>
           <div className="col-12 col-lg-3 order-3 order-md-5 order-lg-1 ">

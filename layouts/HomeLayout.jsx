@@ -12,22 +12,26 @@ import { ElementTest } from "../components/elementTest/ElementTest";
 import { Footer } from "../elements/footer/Footer";
 import { Benefits } from "../elements/benefits/Benefits";
 
+import styles from "./homeLayout.module.scss";
+
 export const HomeLayout = ({ children }) => {
   const { sections } = useContext(DataContext);
 
   return (
     <>
       <Header />
-      <Banner />
-      <FavCategories />
+      <div className={styles.wrapper}>
+        <Banner />
+        <FavCategories />
 
-      {sections.map((section, index) => (
-        <Carousel key={index} section={section} />
-      ))}
+        {sections.map((section, index) => (
+          <Carousel key={index} section={section} />
+        ))}
 
-      <BlogPosts />
+        <BlogPosts />
 
-      <Benefits />
+        <Benefits />
+      </div>
       <Footer />
 
       {/* <ElementTest /> */}

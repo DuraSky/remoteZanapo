@@ -3,15 +3,17 @@
 .searchCol {
   font-family: $globalFont;
   display: flex;
+
   align-items: center;
-  width: 100%;
+  //margin-left: 30px;
+  //width: 90%;
   padding: 5px;
   box-sizing: border-box;
-  border: $header-icon-border;
-  border-top-left-radius: $my-border-radius;
-  border-top-right-radius: $my-border-radius;
-  border-bottom-left-radius: $my-border-radius;
-  border-bottom-right-radius: $searchbar-button-radius;
+  border: 1px solid $orange-color;
+  // border-top-left-radius: $my-border-radius;
+  // border-top-right-radius: $my-border-radius;
+  // border-bottom-left-radius: $my-border-radius;
+  // border-bottom-right-radius: $searchbar-button-radius;
 
   .searchIcon {
     display: flex;
@@ -33,16 +35,16 @@
     color: $white-color;
     cursor: pointer;
     border: none;
-    border-top-left-radius: $my-border-radius;
-    border-top-right-radius: $my-border-radius;
-    border-bottom-right-radius: $searchbar-button-radius;
+    // border-top-left-radius: $my-border-radius;
+    // border-top-right-radius: $my-border-radius;
+    // border-bottom-right-radius: $searchbar-button-radius;
     opacity: 1;
     box-sizing: border-box;
 
     height: calc(100% - 20px);
     padding: 10px;
     flex: 0 0 auto;
-    min-width: 60px;
+    min-width: 80px;
     &:hover {
       opacity: 0.85;
     }

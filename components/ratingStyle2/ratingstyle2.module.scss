@@ -14,22 +14,24 @@
   gap: 5px;
   align-items: center;
   svg {
-    fill: $gold-color;
+    fill: $rating-color;
     width: 18px;
   }
 }
 
 .star {
-  margin-right: 1px;
+  margin-right: 3px;
 }
 
 .ratingCount {
   //text-align: center;
   //display: flex;
+  span {
+    color: $orange-color;
+  }
   font-size: $carousel-review-font-size;
   font-weight: $carousel-review-font-weight;
-  color: #666;
-  opacity: 0.6;
+  //opacity: 0.6;
 
   //margin-top: 5px;
 }

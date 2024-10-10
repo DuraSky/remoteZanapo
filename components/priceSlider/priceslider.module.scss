@@ -113,8 +113,8 @@
       input {
         //position: relative;
         //width: 100%;
-        padding: 5px;
-        padding-right: 20px; /* Adjust padding to make room for "Kč" */
+        padding: 5px 20px;
+        // padding-right: 20px; /* Adjust padding to make room for "Kč" */
 
         border: 1px solid $darker-grey-color;
         border-radius: $my-border-radius;
