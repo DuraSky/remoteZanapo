@@ -6,6 +6,7 @@ export const BuySection = ({
   availability_color,
   delivery_date,
   price_f,
+  price_before_discount,
 }) => {
   const [quantity, setQuantity] = useState(1);
 
@@ -55,7 +56,16 @@ export const BuySection = ({
       </div>
 
       <div className={styles.priceAndBuy}>
-        <p className={styles.price}>{price_f}</p>
+        {price_before_discount ? (
+          <div className={styles.priceWrapper}>
+            <p className={styles.priceBeforeDiscount}>
+              {price_before_discount}
+            </p>
+            <p className={styles.price}>{price_f}</p>
+          </div>
+        ) : (
+          <p className={styles.price}>{price_f}</p>
+        )}
         <div className={styles.inputGroup}>
           <input
             type="number"

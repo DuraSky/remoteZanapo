@@ -1,14 +1,19 @@
 import React from "react";
-
 import styles from "./productproperties.module.scss";
 
-export const ProductProperties = () => {
+export const ProductProperties = ({ features }) => {
+  if (!features || features.length === 0) {
+    return null;
+  }
+
   return (
     <div className={styles.propertiesWrapper}>
-      <div className={styles.property}>
-        <p>Materiál šachové desky:</p>
-        <p className={styles.right}>buk / javor</p>
-      </div>
+      {features.map((feature, index) => (
+        <div key={index} className={styles.property}>
+          <p>{feature.name}:</p>
+          <p className={styles.right}>{feature.value}</p>
+        </div>
+      ))}
     </div>
   );
 };

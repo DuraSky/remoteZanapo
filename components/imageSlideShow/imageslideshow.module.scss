@@ -1,163 +1,264 @@
 @import "./styles/variables";
 
+// .imageSlideShow {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+
+//   .mainImageWrapper {
+//     position: relative;
+
+//     img {
+//       max-width: 100%;
+//       height: auto;
+//       cursor: pointer;
+//     }
+
+//     &:hover .imageOverlay {
+//       opacity: 1;
+//       cursor: pointer;
+//     }
+//   }
+
+//   .imageOverlay {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     background-color: rgba(0, 0, 0, 0.5);
+//     opacity: 0;
+//     transition: opacity 0.3s ease;
+//   }
+
+//   /* Mobile Dots */
+//   .dotsWrapper {
+//     display: flex;
+//     justify-content: center;
+//     margin-top: 10px;
+//     flex-wrap: wrap;
+
+//     .dot {
+//       height: 10px;
+//       width: 10px;
+//       background-color: #ddd;
+//       border-radius: 50%;
+//       margin: 2px 5px;
+//       cursor: pointer;
+//     }
+
+//     .activeDot {
+//       background-color: #ff6347;
+//     }
+//   }
+
+//   /* Thumbnails Carousel Controls */
+//   .thumbnailControls {
+//     display: none;
+//     @media (min-width: 769px) {
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       //margin-top: 10px;
+
+//       .carouselButton {
+//         background: none;
+//         border: none;
+//         font-size: 20px;
+//         cursor: pointer;
+//         transition: color 0.3s ease;
+
+//         &:hover {
+//           color: #ff6347;
+//         }
+//       }
+//     }
+//   }
+
+//   .thumbnailsWrapper {
+//     display: flex;
+//     overflow: hidden;
+//     scroll-behavior: smooth;
+//     gap: 10px;
+//     width: 100%;
+
+//     //justify-content: flex-start;
+//   }
+
+//   .thumbnail {
+//     flex-shrink: 0;
+//     cursor: pointer;
+//     border: 2px solid transparent;
+//     padding: 5px;
+//     transition: border 0.3s ease;
+//     box-sizing: border-box;
+
+//     img {
+//       width: 100%;
+//       height: 100%;
+//       //object-fit: contain;
+//     }
+//   }
+
+//   .activeThumbnail {
+//     border-color: $gold-color;
+//     border-radius: $my-border-radius;
+//     box-shadow: $myHeavyBoxShadow;
+//     //overflow: hidden;
+//     // display: flex;
+//     // justify-content: center;
+//     // align-items: center;
+//   }
+
+//   /* Responsive Design */
+//   @media (min-width: 600px) {
+//     .thumbnailsWrapper {
+//       width: 600px;
+//     }
+
+//     .thumbnail {
+//       width: 100px;
+//       height: 80px;
+//     }
+//   }
+
+//   @media (min-width: 900px) {
+//     .thumbnailsWrapper {
+//       width: 700px;
+//     }
+//   }
+
+//   @media (min-width: 992px) {
+//     .thumbnailsWrapper {
+//       width: 400px;
+//     }
+//   }
+
+//   @media (min-width: 1100px) {
+//     .thumbnailsWrapper {
+//       width: 500px;
+//     }
+//   }
+
+//   @media (min-width: 1250px) {
+//     .thumbnailsWrapper {
+//       width: 600px;
+//     }
+//   }
+
+//   @media (min-width: 1450px) {
+//     .thumbnailsWrapper {
+//       width: 700px;
+//     }
+//   }
+
+//   @media (min-width: 769px) {
+//     .dotsWrapper {
+//       display: none;
+//     }
+//   }
+// }
+
+// here
 .imageSlideShow {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  .mainImageWrapper {
-    position: relative;
-    img {
-      max-width: 100%;
-      height: auto;
-      cursor: pointer;
-    }
-
-    &:hover .imageOverlay {
-      opacity: 1;
-      cursor: pointer;
-    }
-  }
-
-  .imageOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  /* Mobile Dots */
-  .dotsWrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    flex-wrap: wrap;
-
-    .dot {
-      height: 10px;
-      width: 10px;
-      background-color: #ddd;
-      border-radius: 50%;
-      margin: 2px 5px;
-      cursor: pointer;
-    }
-
-    .activeDot {
-      background-color: #ff6347;
-    }
-  }
-
-  /* Thumbnails Carousel Controls */
-  .thumbnailControls {
-    display: none;
-    @media (min-width: 769px) {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      //margin-top: 10px;
-
-      .carouselButton {
-        background: none;
-        border: none;
-        font-size: 20px;
-        cursor: pointer;
-        transition: color 0.3s ease;
-
-        &:hover {
-          color: #ff6347;
-        }
-      }
-    }
-  }
+  flex-direction: row;
+  align-items: flex-start;
 
   .thumbnailsWrapper {
     display: flex;
-    overflow: hidden;
-    scroll-behavior: smooth;
-    gap: 10px;
-    width: 100%;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 450px;
+    width: 100px;
 
-    //justify-content: flex-start;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    scrollbar-width: none;
+
+    .thumbnail {
+      margin-bottom: 5px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border 0.3s ease;
+
+      img {
+        width: 100%;
+        height: 100%;
+        //max-width: 150px;
+      }
+    }
+
+    .activeThumbnail {
+      border-color: $gold-color;
+      //border-radius: $my-border-radius;
+      box-shadow: $myHeavyBoxShadow;
+    }
   }
 
-  .thumbnail {
-    flex-shrink: 0;
-    cursor: pointer;
-    border: 2px solid transparent;
-    padding: 5px;
-    transition: border 0.3s ease;
-    box-sizing: border-box;
+  .mainImageWrapper {
+    position: relative;
 
     img {
       width: 100%;
       height: 100%;
-      //object-fit: contain;
+      cursor: pointer;
     }
   }
+}
 
-  .activeThumbnail {
-    border-color: $gold-color;
-    border-radius: $my-border-radius;
-    box-shadow: $myHeavyBoxShadow;
-    //overflow: hidden;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-  }
-
-  /* Responsive Design */
-  @media (min-width: 600px) {
-    .thumbnailsWrapper {
-      width: 600px;
-    }
-
-    .thumbnail {
-      width: 100px;
-      height: 80px;
-    }
-  }
-
-  @media (min-width: 900px) {
-    .thumbnailsWrapper {
-      width: 700px;
-    }
-  }
-
-  @media (min-width: 992px) {
-    .thumbnailsWrapper {
-      width: 400px;
-    }
-  }
-
-  @media (min-width: 1100px) {
-    .thumbnailsWrapper {
-      width: 500px;
-    }
-  }
-
-  @media (min-width: 1250px) {
-    .thumbnailsWrapper {
-      width: 600px;
-    }
-  }
-
-  @media (min-width: 1450px) {
-    .thumbnailsWrapper {
-      width: 700px;
-    }
-  }
-
+//   /* Thumbnails Carousel Controls */
+.thumbnailControls {
+  display: none;
   @media (min-width: 769px) {
-    .dotsWrapper {
-      display: none;
+    display: block;
+    text-align: center;
+    //align-items: center;
+    //justify-content: center;
+    //margin-top: 10px;
+
+    .carouselButton {
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $orange-color;
+      }
     }
+  }
+}
+
+/* Mobile Dots */
+.dotsWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+
+  .dot {
+    height: 10px;
+    width: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin: 2px 5px;
+    cursor: pointer;
+  }
+
+  .activeDot {
+    background-color: $orange-color;
+  }
+}
+
+@media (min-width: 769px) {
+  .dotsWrapper {
+    display: none;
   }
 }

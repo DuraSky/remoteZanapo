@@ -66,18 +66,20 @@ export const ImageSlideShow = ({ images }) => {
 
   const centerSelectedThumbnail = () => {
     if (thumbnailRef.current) {
-      const thumbnailWidth = 120;
-      const containerWidth = thumbnailRef.current.offsetWidth;
-      const totalThumbnailsWidth = thumbnailRef.current.scrollWidth;
-      const maxScrollLeft = totalThumbnailsWidth - containerWidth;
+      const thumbnailHeight = 60;
+      const containerHeight = thumbnailRef.current.offsetHeight;
+      const totalThumbnailsHeight = thumbnailRef.current.scrollHeight;
+      const maxScrollTop = totalThumbnailsHeight - containerHeight;
 
       const scrollToPosition =
-        currentIndex * thumbnailWidth - containerWidth / 2 + thumbnailWidth / 2;
+        currentIndex * thumbnailHeight -
+        containerHeight / 2 +
+        thumbnailHeight / 2;
 
-      const scrollLeft = Math.max(0, Math.min(scrollToPosition, maxScrollLeft));
+      const scrollTop = Math.max(0, Math.min(scrollToPosition, maxScrollTop));
 
       thumbnailRef.current.scrollTo({
-        left: scrollLeft,
+        top: scrollTop,
         behavior: "smooth",
       });
     }
@@ -85,12 +87,12 @@ export const ImageSlideShow = ({ images }) => {
 
   const scrollThumbnailsManually = (direction) => {
     if (thumbnailRef.current) {
-      const thumbnailWidth = 110;
+      const thumbnailHeight = 110;
       const scrollAmount =
-        direction === "left" ? -3 * thumbnailWidth : 3 * thumbnailWidth;
+        direction === "up" ? -3 * thumbnailHeight : 3 * thumbnailHeight;
 
       thumbnailRef.current.scrollBy({
-        left: scrollAmount,
+        top: scrollAmount,
         behavior: "smooth",
       });
     }
@@ -100,68 +102,22 @@ export const ImageSlideShow = ({ images }) => {
     <>
       <div className={styles.imageSlideShow}>
         {/* Main Image */}
-        <div
-          className={styles.mainImageWrapper}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-          onClick={openOverlay}
-        >
-          <Image
-            src={`https://zanapo.cz${images[currentIndex].src}`}
-            alt={images[currentIndex].alt}
-            width={1000}
-            height={1000}
-            objectFit="contain"
-          />
-
-          <div className={styles.imageOverlay}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="64"
-              height="64"
-              viewBox="0 0 512 512"
-            >
-              <path
-                fill="white"
-                d="m479.6 399.716l-81.084-81.084l-62.368-25.767A175 175 0 0 0 368 192c0-97.047-78.953-176-176-176S16 94.953 16 192s78.953 176 176 176a175.03 175.03 0 0 0 101.619-32.377l25.7 62.2l81.081 81.088a56 56 0 1 0 79.2-79.195M48 192c0-79.4 64.6-144 144-144s144 64.6 144 144s-64.6 144-144 144S48 271.4 48 192m408.971 264.284a24.03 24.03 0 0 1-33.942 0l-76.572-76.572l-23.894-57.835l57.837 23.894l76.573 76.572a24.03 24.03 0 0 1-.002 33.941"
-              />
-            </svg>
-          </div>
-        </div>
-
-        {/* Dots for Mobile */}
-        <div className={styles.dotsWrapper}>
-          {images.map((_, index) => (
-            <span
-              key={index}
-              className={`${styles.dot} ${
-                index === currentIndex ? styles.activeDot : ""
-              }`}
-              onClick={() => setCurrentIndex(index)}
-            ></span>
-          ))}
-        </div>
 
         {/* Thumbnails */}
         <div className={styles.thumbnailControls}>
           <button
             className={styles.carouselButton}
-            onClick={() => scrollThumbnailsManually("left")}
+            onClick={() => scrollThumbnailsManually("up")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
+              width="14"
+              height="16"
+              viewBox="0 0 448 512"
             >
               <path
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="m14 7l-5 5m0 0l5 5"
+                fill="currentColor"
+                d="m240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495L69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001"
               />
             </svg>
           </button>
@@ -188,27 +144,65 @@ export const ImageSlideShow = ({ images }) => {
 
           <button
             className={styles.carouselButton}
-            onClick={() => scrollThumbnailsManually("right")}
+            onClick={() => scrollThumbnailsManually("down")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
+              width="14"
+              height="16"
+              viewBox="0 0 448 512"
             >
               <path
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="m10 17l5-5m0 0l-5-5"
+                fill="currentColor"
+                d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0"
               />
             </svg>
           </button>
         </div>
+
+        <div
+          className={styles.mainImageWrapper}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+          onClick={openOverlay}
+        >
+          <Image
+            src={`https://zanapo.cz${images[currentIndex].src}`}
+            alt={images[currentIndex].alt}
+            width={1200}
+            height={1200}
+            objectFit="contain"
+          />
+
+          <div className={styles.imageOverlay}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="64"
+              height="64"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="white"
+                d="m479.6 399.716l-81.084-81.084l-62.368-25.767A175 175 0 0 0 368 192c0-97.047-78.953-176-176-176S16 94.953 16 192s78.953 176 176 176a175.03 175.03 0 0 0 101.619-32.377l25.7 62.2l81.081 81.088a56 56 0 1 0 79.2-79.195M48 192c0-79.4 64.6-144 144-144s144 64.6 144 144s-64.6 144-144 144S48 271.4 48 192m408.971 264.284a24.03 24.03 0 0 1-33.942 0l-76.572-76.572l-23.894-57.835l57.837 23.894l76.573 76.572a24.03 24.03 0 0 1-.002 33.941"
+              />
+            </svg>
+          </div>
+        </div>
       </div>
 
+      {/* Dots for Mobile */}
+      <div className={styles.dotsWrapper}>
+        {images.map((_, index) => (
+          <span
+            key={index}
+            className={`${styles.dot} ${
+              index === currentIndex ? styles.activeDot : ""
+            }`}
+            onClick={() => setCurrentIndex(index)}
+          ></span>
+        ))}
+      </div>
       <ImageOverlay
         images={images}
         currentIndex={currentIndex}

@@ -1,30 +1,49 @@
 @import "../styles/variables";
+
 .buySectionWrapper {
   background-color: $buysection-color;
   display: flex;
-  //flex-direction: column;
   align-items: flex-end;
   justify-content: space-between;
   padding: 10px;
+
+  .customBullet {
+    display: flex;
+    align-items: center;
+  }
 
   .priceAndButton {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 10px;
+
+    .priceWrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .priceBeforeDiscount {
+      font-size: 0.9rem;
+      align-self: flex-end;
+
+      text-decoration: line-through;
+    }
+
     .price {
-      font-weight: 1rem;
+      font-size: 1.2rem;
       font-weight: bold;
     }
+
     .buyButton {
       transition: all 0.3s ease;
-      //border-radius: $my-border-radius;
       color: #fff;
       font-weight: 600;
       text-transform: none;
       padding: 8px 24px !important;
       background-color: $orange-color;
       border: none;
+
       .buttonText {
         display: flex;
         justify-content: center;

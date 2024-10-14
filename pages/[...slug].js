@@ -26,6 +26,10 @@ const Page = () => {
             },
           }
         );
+        console.log(
+          "URL",
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/url/content?requested_path=/${slugString}&page=${page}&elements=categoryfaq`
+        );
 
         const data = await res.json();
         if (data && data.page_type) {

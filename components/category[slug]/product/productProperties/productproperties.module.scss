@@ -2,6 +2,8 @@
 
 .propertiesWrapper {
   display: flex;
+  flex-direction: column;
+  margin: 5px 0;
 
   .property {
     display: flex;
@@ -9,6 +11,15 @@
     align-items: center;
     justify-content: space-between;
     font-size: 0.9rem;
+    padding: 5px 2px;
+
+    &:nth-child(odd) {
+      background-color: $grey-color;
+    }
+
+    &:nth-child(even) {
+      border-bottom: 1px dotted $grey-color;
+    }
 
     .right {
       color: $darker-grey-color;

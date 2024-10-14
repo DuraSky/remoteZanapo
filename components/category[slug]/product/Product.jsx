@@ -72,7 +72,7 @@ export const Product = ({ filteredProducts }) => {
             <Link href={product.url}>
               <h3 className={styles.productName}>{product.name}</h3>
             </Link>
-            <ProductProperties />
+            <ProductProperties features={product.features_list} />
 
             <p className={styles.productDescription}>
               {truncateText(product.description_short, 130)}
@@ -83,6 +83,7 @@ export const Product = ({ filteredProducts }) => {
                 availability_color={product.availability_color}
                 availability_text={product.availability_text}
                 price={product.price_f}
+                price_before_discount={product.price_before_discount_f}
               />
               {/* <div
                 className={styles.productAvailability}

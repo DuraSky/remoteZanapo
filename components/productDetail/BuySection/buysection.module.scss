@@ -28,6 +28,10 @@
     display: flex;
     justify-content: space-between;
 
+    .priceBeforeDiscount {
+      text-decoration: line-through;
+    }
+
     input {
       width: 50px;
       font-size: 18px;

@@ -9,6 +9,7 @@ const nextConfig = {
   },
   images: {
     domains: ["test.zanapo.cz", "zanapo.cz", "zanapo-test.webmexplus.cz"],
+    unoptimized: true, // Add this line to disable image optimization
   },
 };
 

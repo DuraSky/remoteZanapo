@@ -112,7 +112,6 @@ export const CategoryLayout = ({ data }) => {
 
       setFilteredProducts(data.products);
       setCurrentPage(1);
-      console.log("DFGSFSF", data.sort_links);
       if (data.filters) setFilterCategories(data.filters);
       if (data.sort_links) setSortLinks(data.sort_links);
       if (data.pagination_links) setPaginationLinks(data.pagination_links);

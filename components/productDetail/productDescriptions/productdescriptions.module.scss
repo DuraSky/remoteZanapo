@@ -1,0 +1,43 @@
+@import "./styles/variables";
+
+.productDescriptions {
+  background-color: $grey-color;
+  margin-top: 20px;
+
+  h3 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.2;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $black-color;
+  }
+
+  .content {
+    //display: flex;
+    .propertiesWrapper {
+      //background-color: white;
+      display: flex;
+      flex-direction: column;
+      //align-items: flex-end;
+      .property {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px;
+
+        &:nth-child(odd) {
+          background-color: white;
+        }
+
+        .left {
+          color: $rating-color;
+        }
+
+        .right {
+          color: $darker-grey-color;
+        }
+      }
+    }
+  }
+}
