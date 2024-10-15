@@ -10,7 +10,7 @@ export const ReviewSummary = ({ reviews }) => {
       ? (reviews.reduce((sum, review) => sum + review.rating, 0) /
           (totalReviews * 5)) *
         100
-      : 0;
+      : 100;
 
   const averageStars =
     totalReviews > 0
@@ -28,13 +28,27 @@ export const ReviewSummary = ({ reviews }) => {
           <p>{averageRating.toFixed(1)}%</p>
         </div>
 
-        <div>
+        <div className={styles.starsHeader}>
           <Ratings rating={averageStars} />
           <p className={styles.totalReviews}>{totalReviews} hodnocení</p>
         </div>
       </div>
 
-      <button className={styles.addReviewButton}>Přidat hodnocení</button>
+      <button className={styles.addReviewButton}>
+        {" "}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 512 512"
+        >
+          <path
+            fill="currentColor"
+            d="M256 512a256 256 0 1 0 0-512a256 256 0 1 0 0 512m-24-168v-64h-64c-13.3 0-24-10.7-24-24s10.7-24 24-24h64v-64c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24h-64v64c0 13.3-10.7 24-24 24s-24-10.7-24-24"
+          />
+        </svg>
+        Přidat hodnocení
+      </button>
 
       <div className={styles.ratingBars}>
         {[5, 4, 3, 2, 1].map((star) => {

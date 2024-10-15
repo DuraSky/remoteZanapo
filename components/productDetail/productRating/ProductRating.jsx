@@ -14,7 +14,7 @@ export const ProductRating = ({ ratings }) => {
         <div className="col-8">
           <ProductUserRating reviews={ratings} />
         </div>
-        <div className="col-3">
+        <div className="col-4">
           <ReviewSummary reviews={ratings} />
         </div>
       </div>

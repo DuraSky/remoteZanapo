@@ -1,50 +1,69 @@
 @import "./styles/variables";
 
-// .reviewSummary {
-//   padding: 1rem;
-//   border-top: 1px solid #ddd;
-//   margin-top: 1rem;
-// }
-
-.overallRating {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-.addReviewButton {
-  background-color: #0070f3;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 1rem;
-}
-
-.ratingBars {
+.reviewSummary {
+  background-color: white;
+  padding: 40px;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-}
 
-.ratingRow {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
+  .overallRating {
+    display: flex;
+    //align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+    .ratingHeader {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: $darker-grey-color;
+    }
+    .starsHeader {
+      font-size: 1rem;
+    }
+  }
 
-.barContainer {
-  flex: 1;
-  background-color: #e0e0e0;
-  height: 1rem;
-  border-radius: 5px;
-  overflow: hidden;
-}
+  .addReviewButton {
+    border: 1px solid $rating-color;
+    color: $rating-color;
+    padding: 6px 12px;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 10px;
 
-.barFill {
-  height: 100%;
-  background-color: #0070f3;
+    &:hover {
+      color: $darker-grey-color;
+      border: 1px solid $darker-grey-color;
+    }
+  }
+
+  .ratingBars {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .ratingRow {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .barContainer {
+    flex: 1;
+    background-color: $grey-color;
+    height: 0.8rem;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .barFill {
+    height: 100%;
+    background-color: $rating-color;
+  }
 }

@@ -4,6 +4,10 @@
   background-color: white;
   max-width: 500px;
   padding: 10px;
+  margin-bottom: 10px;
+
+  display: flex;
+  flex-direction: column;
 
   .reviewHeader {
     font-size: 1.2rem;
@@ -15,21 +19,40 @@
   .review {
     border-bottom: 1px dashed #e4e4e6;
     padding: 10px;
-    .positives {
+
+    .positives,
+    .negatives {
       display: flex;
+      flex-wrap: nowrap;
       align-items: center;
       gap: 5px;
       padding: 5px 10px;
+
+      svg {
+        min-width: 16px;
+      }
+    }
+
+    .positives {
       color: $positive-rating;
     }
 
-    .negatives {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 5px;
+    .negative {
       color: $negative-rating;
-      padding: 5px 10px;
     }
+  }
+
+  .toggleButton {
+    border: none;
+    color: #f5f6f8;
+    padding: 6px 12px;
+    background-color: #023b46;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 5px;
+    cursor: pointer;
   }
 }
