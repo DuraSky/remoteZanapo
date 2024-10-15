@@ -14,7 +14,7 @@ export const ErrorLayout = () => {
         <div className={styles.errorBlock}>
           <p>Stránka nenalezena</p>
           <p>
-            Prosím kontaktujte nás na čísle <span>+420 703 694 133</span>{" "}
+            Prosím kontaktujte nás na čísle <span>+420 703 694 133</span>
           </p>
           <p>
             Nebo emailem na <span>zanapo@gmail.com</span>

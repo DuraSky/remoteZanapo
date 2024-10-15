@@ -1,31 +1,10 @@
 @import "./styles/variables";
 
-.ratingContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
 .stars {
-  color: $rating-color;
-  font-size: $carousel-star-size;
   display: flex;
-  align-items: center;
-  svg {
-    fill: $gold-color;
-    width: 18px;
-  }
+  font-size: 1.5rem;
 }
 
 .star {
-  margin-right: 1px;
-}
-
-.ratingCount {
-  //text-align: center;
-  font-size: $carousel-review-font-size;
-  font-weight: $carousel-review-font-weight;
-  color: #666;
-  //margin-top: 5px;
+  color: $rating-color;
 }

@@ -90,7 +90,10 @@ export const ProductLayout = ({ data }) => {
               </p>
 
               {productInfo.variants && (
-                <Variants variants={productInfo.variants} />
+                <Variants
+                  variants={productInfo.variants}
+                  name={productInfo.name}
+                />
               )}
 
               <BuySection
@@ -139,7 +142,7 @@ export const ProductLayout = ({ data }) => {
       </section>
 
       <section className="container-fluid">
-        <ProductRating />
+        {productInfo.ratings && <ProductRating ratings={productInfo.ratings} />}
       </section>
 
       <section className="container-fluid">

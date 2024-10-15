@@ -1,0 +1,35 @@
+@import "./styles/variables";
+
+.reviewContainer {
+  background-color: white;
+  max-width: 500px;
+  padding: 10px;
+
+  .reviewHeader {
+    font-size: 1.2rem;
+    span {
+      color: $darker-grey-color;
+    }
+  }
+
+  .review {
+    border-bottom: 1px dashed #e4e4e6;
+    padding: 10px;
+    .positives {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 10px;
+      color: $positive-rating;
+    }
+
+    .negatives {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 5px;
+      color: $negative-rating;
+      padding: 5px 10px;
+    }
+  }
+}

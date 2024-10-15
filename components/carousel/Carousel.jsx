@@ -3,6 +3,7 @@ import styles from "./carousel.module.scss";
 
 import { Label } from "./labels/Label";
 import { Ratings } from "./ratings/Ratings";
+import { RatingsStyle2 } from "../ratingStyle2/RatingsStyle2";
 
 export const Carousel = ({ section }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -88,7 +89,7 @@ export const Carousel = ({ section }) => {
                     <h3>{product.name}</h3>
 
                     {product.rating_average && (
-                      <Ratings
+                      <RatingsStyle2
                         index={index}
                         ratingAverage={product.rating_average}
                         ratingCount={product.rating_count}
